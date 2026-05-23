@@ -1,0 +1,6 @@
+{
+  "name": "REI.SATO — Digital Art Directory",
+  "description": "A cinematic personal portfolio and immersive 30-frame digital art exhibition gallery with responsive real-time layout overrides.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
