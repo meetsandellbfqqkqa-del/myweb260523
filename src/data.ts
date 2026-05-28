@@ -4,22 +4,22 @@ export const profileData: Profile = {
   firstName: "洪",
   lastName: "旗",
   tagline: "UX设计师 & AI技术爱好",
-  story: "活跃于东京极简主义与数字叙事的交汇处。佐藤黎致力于在高端建筑几何学、奢华美学与互动媒体之间设计情感桥梁。深信留白是极致的奢华，每一个布局都是对刻意留白、触感排版和电影感氛围的精确演练。",
+  story: "HIII，欢迎来到我的网站，我是洪旗。本科在中央美院，研究生目前在中国美院在读，性格开朗，喜欢拥抱新技术。目前经历主要包含在滴滴的产品实习经历，小红书和快手的项目经历，掌握FIGMA， AIGC视觉生成，VIBE CODING等技能",
   imageUrl: "/src/assets/images/regenerated_image_1779421192238.png",
-  email: "studio@rei-sato.agency",
-  phone: "+81 (0) 3 6420 8911",
-  wechat: "rei_sato_creative",
-  github: "rei-sato-exhibits"
+  email: "2860816256@qq.com",
+  phone: "+86 15228718329",
+  wechat: "15228718329",
+  github: "meetsandellbfqgkga-del"
 };
 
 export const projectsData: Project[] = [
   {
     id: "project-01",
     number: "01",
-    title: "以太",
-    subtitle: "品牌体验与感官装置",
+    title: "滴滴产品实习总结",
+    subtitle: "花小猪券裂变活动",
     year: "2026",
-    category: "交互空间识别",
+    category: "UE设计",
     role: "首席创意技术专家 & UX总监",
     client: "巴黎空灵精粹 (Ethereal Essence Paris)",
     duration: "4 个月",
@@ -49,10 +49,10 @@ export const projectsData: Project[] = [
   {
     id: "project-02",
     number: "02",
-    title: "动态虚无",
-    subtitle: "时间减速与建筑学研究",
+    title: "小红书市集体验提升",
+    subtitle: "设计优化小红书市集相关界面",
     year: "2025",
-    category: "数字装置 / 网页艺术",
+    category: "UX设计",
     role: "UX架构师 & 视觉程序员",
     client: "东京现代空间美术馆",
     duration: "6 个月",
@@ -82,10 +82,10 @@ export const projectsData: Project[] = [
   {
     id: "project-03",
     number: "03",
-    title: "东京之静",
-    subtitle: "关于「间」（留白）的摄影叙事",
+    title: "快手2025年度回忆",
+    subtitle: "基于快手年度报告进行虚拟创作",
     year: "2025",
-    category: "电影感图文论述 & 排版",
+    category: "UI设计",
     role: "艺术总监 & 策展人",
     client: "独立出版机构 (Independent Publication Co.)",
     duration: "8 个月",

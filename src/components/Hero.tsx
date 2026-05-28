@@ -102,10 +102,10 @@ export default function Hero({ onScrollToWorks }: HeroProps) {
             <div className="absolute -inset-2 bg-gradient-to-r from-accent-lavender/20 to-accent-blue/10 rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000" />
 
             {/* Artistic Cropped Image Container */}
-            <div className="relative overflow-hidden clip-artistic border border-white/5 bg-[#121212] aspect-[3/4] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)]">
+            <div className="relative overflow-hidden rounded-xs border border-white/5 bg-[#121212] aspect-[3/4] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)]">
               <motion.img
                 src={profileData.imageUrl}
-                alt="Portrait of REI"
+                alt="Portrait of HONG"
                 referrerPolicy="no-referrer"
                 animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
@@ -114,7 +114,7 @@ export default function Hero({ onScrollToWorks }: HeroProps) {
 
               {/* Decorative crosshairs / overlay metrics for digital art look */}
               <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-bg-dark/80 to-transparent flex justify-between items-end font-mono text-[9px] text-[#ffffff40]">
-                <span>REI.S — IN-CAMERA SENSING</span>
+                <span>HONG.Q — IN-CAMERA SENSING</span>
                 <span>F/5.6 ISO 100</span>
               </div>
               
@@ -126,7 +126,7 @@ export default function Hero({ onScrollToWorks }: HeroProps) {
             </div>
 
             {/* Artistic Offset frame outline */}
-            <div className="absolute -bottom-3 -right-3 w-full h-full border border-accent-lavender/20 clip-artistic pointer-events-none -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-700" />
+            <div className="absolute -bottom-3 -right-3 w-full h-full border border-accent-lavender/20 rounded-xs pointer-events-none -z-10 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-700" />
           </motion.div>
         </div>
 

@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { projectsData } from "../data";
 import { Project } from "../types";
+import { resolveImagePath } from "../utils/imageResolver";
 
 interface WorksOverviewProps {
   onSelectProject: (projectId: string) => void;
@@ -24,11 +25,8 @@ export default function WorksOverview({ onSelectProject }: WorksOverviewProps) {
 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light font-display tracking-tight text-linen leading-none">
-            精选 <span className="font-serif italic font-light text-text-slate/60">展览作品</span>
+            精选 <span className="font-mono italic font-light text-text-slate/60">项目经历</span>
           </h2>
-          <p className="max-w-xs font-mono text-[10px] text-text-slate/40 tracking-wider uppercase leading-relaxed">
-            一系列探索动力学、气味与几何学的空间及触感数字装置。 / EXHIBITIONS.
-          </p>
         </div>
         
         <div className="w-full h-[1px] bg-white/5 mt-6" />
@@ -56,9 +54,6 @@ export default function WorksOverview({ onSelectProject }: WorksOverviewProps) {
               {/* Project Card Serial Indicator */}
               <div className="flex justify-between items-center mb-4 font-mono text-[11px] text-text-slate/30 border-b border-white/5 pb-2">
                 <span className="tracking-[0.2em]">CATALOG NO. 0{idx + 1}</span>
-                <span className="group-hover:text-accent-blue transition-colors duration-500 font-light font-mono text-[9px]">
-                  {project.category}
-                </span>
               </div>
 
               {/* Card Image Wrapper with Premium Interactions */}
@@ -71,7 +66,7 @@ export default function WorksOverview({ onSelectProject }: WorksOverviewProps) {
                 <div className="absolute inset-0 bg-gradient-to-tr from-accent-lavender/30 via-transparent to-accent-blue/20 opacity-0 group-hover:opacity-45 blur-lg transition-opacity duration-1000 -z-10" />
 
                 <img
-                  src={project.overviewImage}
+                  src={resolveImagePath(project.overviewImage)}
                   alt={project.title}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-all duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] object-center"
@@ -94,9 +89,6 @@ export default function WorksOverview({ onSelectProject }: WorksOverviewProps) {
               <div className="mt-6 flex flex-col space-y-1">
                 <h3 className="text-2xl sm:text-3xl font-light font-sans tracking-tight text-linen uppercase flex items-center justify-between">
                   <span>{project.title}</span>
-                  <span className="text-sm font-serif italic text-text-slate/40 tracking-normal hidden sm:inline">
-                    {project.year}
-                  </span>
                 </h3>
                 <p className="text-[11px] font-mono text-text-slate/60 uppercase tracking-[0.11em] font-light">
                   {project.subtitle}

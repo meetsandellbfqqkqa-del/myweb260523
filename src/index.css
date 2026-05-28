@@ -90,6 +90,25 @@ body {
 }
 
 /* Custom utilities */
+.inner-scroll-viewport {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(10, 10, 10, 0.35) rgba(0, 0, 0, 0.08);
+}
+.inner-scroll-viewport::-webkit-scrollbar {
+  width: 4px;
+}
+.inner-scroll-viewport::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 99px;
+}
+.inner-scroll-viewport::-webkit-scrollbar-thumb {
+  background: rgba(10, 10, 10, 0.35);
+  border-radius: 99px;
+}
+.inner-scroll-viewport::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 10, 10, 0.55);
+}
+
 .clip-diagonal {
   clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
 }

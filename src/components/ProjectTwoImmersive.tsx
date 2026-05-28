@@ -16,13 +16,15 @@ import {
   Grid
 } from "lucide-react";
 
+import { resolveImagePath } from "../utils/imageResolver";
+
 interface ProjectTwoImmersiveProps {
   onBack: () => void;
   onNavigateToProject: (projectId: string) => void;
 }
 
 interface SlideContent {
-  id: number; // 1 to 27
+  id: number; // 1 to 26
   sectionIndex: number; // 1 to 5
   sectionName: string;
   sectionSub: string;
@@ -35,7 +37,7 @@ interface SlideContent {
   coordinates?: string;
 }
 
-// 27 meticulously written slides covering the Tokyo Kinetic Void series:
+// 26 meticulously written slides covering the Tokyo Kinetic Void series:
 const SLIDES_DATA: SlideContent[] = [
   // SECTION 1: 概念与设计哲学 (Page 1-4)
   {
@@ -43,11 +45,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 1,
     sectionName: "概念与设计哲学",
     sectionSub: "SECTION 01 // CONCEPT & PHILOSOPHY",
-    title: "动态虚无：拥抱高饱和都市中的信息空白点",
+    title: "关于项目",
     titleEng: "Kinetic Void: Embodying Data Silence in a Saturated City",
     summary: "东京街头闪动的霓虹灯与即时推送不断掠夺着人类微弱的感官带宽。本项目致力于在其对立面开辟一个减速空间，将不可见的数字滞留感化为高密度的纯净空间美学。",
     summaryEng: "As neon streets and push-notifications devour finite human sensory bandwidth, we architect a sanctuary of zero density, recasting the silent void as a luxury of time.",
-    defaultImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/9F9Bptny/75069790.jpg",
     metrics: "Inertia Scale: 0.95 (Viscous)",
     coordinates: "KNT.VD // PHI.01"
   },
@@ -56,11 +58,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 1,
     sectionName: "概念与设计哲学",
     sectionSub: "SECTION 01 // CONCEPT & PHILOSOPHY",
-    title: "时间减速器：以极细颗粒阻尼重建网页浏览步伐",
+    title: "问题走查/用户浏览链路自查",
     titleEng: "Temporal Decelerator: Rebuilding Gaze Rhythm with Viscous Grids",
     summary: "摒弃‘瞬时加载’的过度取悦，让滑动阻尼和元素露出的物理响应降至微秒级匀变速，赋予每个单词、每根发丝线条优雅的生长动画。沉浸式抚平数字时代的碎片焦虑。",
     summaryEng: "Instead of split-second instant loading, we engineer pixel friction to unfold layouts slowly, welcoming users into a calming browser state with rhythmic, elegant easing.",
-    defaultImage: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/4Nc15bSv/75069791.jpg",
     metrics: "Deceleration Rate: -3.8m/s²",
     coordinates: "KNT.VD // PHI.02"
   },
@@ -69,11 +71,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 1,
     sectionName: "概念与设计哲学",
     sectionSub: "SECTION 01 // CONCEPT & PHILOSOPHY",
-    title: "虚实倒错的影子：寻找东京深夜静默的无形边界",
+    title: "问题走查/用户购买链路自查",
     titleEng: "Negative Spatials: Searching for Hidden Halos in Tokyo's Nights",
     summary: "从无主小巷中搜集深夜穿透围墙的零星灯影。将多余的三维繁复面剥除，运用冷寂光线的投影溢流在深色背景中刻划，展现出建筑几何在暗面中的本真重量。",
     summaryEng: "Collect single-source lunar shadows leaking over raw concrete boundary gates. High-contrast ambient mapping filters out urban noise to isolate absolute architectural weights.",
-    defaultImage: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/9F9Bptnt/75069792.jpg",
     metrics: "Shadow Spread: 180px",
     coordinates: "KNT.VD // PHI.03"
   },
@@ -82,11 +84,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 1,
     sectionName: "概念与设计哲学",
     sectionSub: "SECTION 01 // CONCEPT & PHILOSOPHY",
-    title: "极简减噪矩阵：设计不是增加，而是无情的剥除",
+    title: "问题走查总结",
     titleEng: "Mindful Removals: Designing the Void by Relentless Stripping",
     summary: "我们将所有交互控件、点赞、多余的导航信息压缩。整个屏幕只留存高精度图像本身、精确的时空坐标与谦逊地隐于下方的极细控制标尺，重归专注本身。",
     summaryEng: "Banish notification flags and nested panels. By focusing only on raw imagery and standard alignment rules, the dynamic grid regains its functional silence.",
-    defaultImage: "https://images.unsplash.com/photo-1549490349-8643362247b5?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/X75g8czk/75069793.jpg",
     metrics: "Clutter Reduction: 98.2%",
     coordinates: "KNT.VD // PHI.04"
   },
@@ -97,11 +99,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 2,
     sectionName: "都市建筑网格",
     sectionSub: "SECTION 02 // URBAN ARCHITECTURAL GRID",
-    title: "粗野主义几何：东京代代木混凝土楼梯的极高精度扫描",
+    title: "用户研究/访谈前准备",
     titleEng: "Brutalist Geometry: High-Fidelity Capture of Yoyogi Staircase",
     summary: "把代代木老建筑粗粝、饱含历史厚度的砂质外壁转化为数码图腾。灰色阶度在单色视口下呈现如沙石微雕般的壮观。极细白哈林色网格让建筑骨架完美漂浮。",
     summaryEng: "Decode the textured historic grains of aging Yoyogi concrete walls into numerical gradients. Surrounded by single-pixel lines, the monument feels lighter, almost weightless.",
-    defaultImage: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/8kMsYQKr/75069802.jpg",
     metrics: "Scan resolution: 12000px",
     coordinates: "ARC.GRD // EXH.01"
   },
@@ -110,11 +112,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 2,
     sectionName: "都市建筑网格",
     sectionSub: "SECTION 02 // URBAN ARCHITECTURAL GRID",
-    title: "中野宽银幕：重质感的经典横向线条裁切练习",
+    title: "用户研究/问题聚焦",
     titleEng: "Nakano Widescreen: Rhythmic Horizontal Alignment Ticks",
     summary: "受早期黑泽明电影景别影响，我们将长方形卡片宽高比固定为完美的、能唤醒本能宏大感的16:9比例。配合左右微小刻度对齐，营造在艺术暗房中的肃穆感。",
     summaryEng: "Inspired by classic widescreen cinematography, we anchor visual frames in a ratio of 16:9, surrounding margins with hairline coordinates to mirror dark projection rooms.",
-    defaultImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/ncm1kYPR/75069795.jpg",
     metrics: "Ratio: 1.777 Cine",
     coordinates: "ARC.GRD // EXH.02"
   },
@@ -123,11 +125,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 2,
     sectionName: "都市建筑网格",
     sectionSub: "SECTION 02 // URBAN ARCHITECTURAL GRID",
-    title: "光影断层摄影：用物理暗部将虚空质感物质化",
+    title: "竞品分析/首页运营模块",
     titleEng: "Chiaroscuro Discontinuity: Materializing the Negative Gap",
     summary: "不再依赖数码阴影生成器。我们手绘出符合东京极简画廊进深采光落点的物理退化晕，让画幅边缘的光晕和暗区宛如从真实的石膏框架中流泻出来一般。",
     summaryEng: "Avoid digital overlay artifacts. We mapped hand-drawn, falloff-accurate luminosity glows matching classic gypsum frames to deliver realistic physical weight.",
-    defaultImage: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/gkhKDqT1/75069797.jpg",
     metrics: "Gamma Falloff: 1.15",
     coordinates: "ARC.GRD // EXH.03"
   },
@@ -136,11 +138,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 2,
     sectionName: "都市建筑网格",
     sectionSub: "SECTION 02 // URBAN ARCHITECTURAL GRID",
-    title: "非对称性张力：留白与负空间的呼吸韵律",
+    title: "竞品分析/商详页信息透出",
     titleEng: "Asymmetrical Tension: Elegant Negative Space Breathings",
     summary: "打破死板的对称居中。我们将摄影重心和极简文字一左一右，排版空隙被置入黄金比例距离，让用户的视线能够自由地游移，建立毫无逼迫感的浏览情绪状态。",
     summaryEng: "Shatter conventional symmetrical card templates. Displace geometric masses to create dynamic negative paths, giving visual layouts a serene, unforced reading curve.",
-    defaultImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/pLtJ1hwq/75069801.jpg",
     metrics: "Grid Ratio: Golden Angle",
     coordinates: "ARC.GRD // EXH.04"
   },
@@ -151,11 +153,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 3,
     sectionName: "算法重构与动能",
     sectionSub: "SECTION 03 // KINETIC VISCOSITY IMPLEMENTATION",
-    title: "阻尼动力学：WebGL高阻尼阻尼差速器系统",
+    title: "竞品分析/店铺页信息透出",
     titleEng: "Step 01: High-Viscosity Friction Momentum Engine",
     summary: "为了使横向滚动呈现出如在深色原油中缓缓滑过的质感，我们用弹性阻尼牛顿方程在前端重新编写了位移。让即使最激烈的拉动也变成缓慢释放的温柔仪式。",
     summaryEng: "To slow rapid gestures, we coded momentum-friction solvers in WebGL. Accelerations glide and decelerate gently, inviting users into a slow, meditative spatial flow.",
-    defaultImage: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/HkC9PcqP/75069804.jpg",
     metrics: "Viscosity Index: 0.88",
     coordinates: "KIN.ENG // STP.01"
   },
@@ -164,11 +166,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 3,
     sectionName: "算法重构与动能",
     sectionSub: "SECTION 03 // KINETIC VISCOSITY IMPLEMENTATION",
-    title: "时空延迟定位：在交互层中有意加入认知沉降期",
+    title: "竞品分析总结",
     titleEng: "Step 02: Strategic Cognitive Sabbaticals & Intermissions",
     summary: "我们坚持反极速主义。在两个章节滑动过渡之时，人为插入高达500ms的“留白黑场”。此时文字和图像全部安静离场，让眼球和精神在深邃的绝对黑夜中沉静。",
     summaryEng: "In defiance of instant load, we render a pure black gap during section swaps. This 500ms delay resets the optical nerve and clears residual reading fatigue.",
-    defaultImage: "https://images.unsplash.com/photo-1485081669829-bacb8c7bb1d3?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/t4HNmZKv/75069803.jpg",
     metrics: "Sabbatical: 500ms",
     coordinates: "KIN.ENG // STP.02"
   },
@@ -177,11 +179,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 3,
     sectionName: "算法重构与动能",
     sectionSub: "SECTION 03 // KINETIC VISCOSITY IMPLEMENTATION",
-    title: "生物反馈模拟：自适应镜头呼吸聚焦深度算法",
+    title: "策略一:逛起来",
     titleEng: "Step 03: Simulated Biometric Breathing & Lens Easing",
     summary: "引入自适应图像聚焦缓动。卡片在滑入屏幕中端时自动解除边缘的高斯模糊，宛如使用者的眼睛在深夜中凝神聚焦；而离开时又重新没入朦胧夜霭，极为流畅。",
     summaryEng: "Implement dynamic focal falloffs. Cards clear up as they align center, simulating human eye adaptation, then gently return to industrial fog as they glide away.",
-    defaultImage: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/QdrJn92y/75069805.jpg",
     metrics: "Focal Scale: 0.98",
     coordinates: "KIN.ENG // STP.03"
   },
@@ -190,11 +192,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 3,
     sectionName: "算法重构与动能",
     sectionSub: "SECTION 03 // KINETIC VISCOSITY IMPLEMENTATION",
-    title: "环境溢光反应：画布低流明边缘彩色溢折色度",
+    title: "首页新框架",
     titleEng: "Step 04: Ambient Light Spill & Low-Lumen Reflection",
     summary: "设计了一个自适应环境光投影算法。根据当前处于核心焦点的摄影画面色调，在黑色背景深层秘密地投射出折射溢色，宛如真实的投影在无光展墙上投下的漫反射。",
     summaryEng: "Project secondary glow profiles echoing the core visual colors onto background layers, simulating real gallery projectors reflecting in a darkened space.",
-    defaultImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/x1S3FJwZ/75069806.jpg",
     metrics: "Luminance Spill: 12%",
     coordinates: "KIN.ENG // STP.04"
   },
@@ -203,11 +205,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 3,
     sectionName: "算法重构与动能",
     sectionSub: "SECTION 03 // KINETIC VISCOSITY IMPLEMENTATION",
-    title: "物理微粒阻尼：在滚动边缘引入流体粒子流速交互",
+    title: "首页Feed流卡片多元化",
     titleEng: "Step 05: Fluid Micro-particle Drift and Drag Dynamics",
     summary: "在全景控制中增加不易察觉的慢速粒子背景。利用经典流体力学，滚动速度越快则粒子产生的微弱推力阻力越大。在极其微妙的层面上，用指尖便能触摸到流逝的时间重量。",
     summaryEng: "Utilize hydrodynamics to drift delicate layout vectors under scroll thrusts. Moving faster increases drag coefficients, revealing the true gravity of motion.",
-    defaultImage: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/dtC9Bmxz/75069798.jpg",
     metrics: "Particulate Drag: +18%",
     coordinates: "KIN.ENG // STP.05"
   },
@@ -216,11 +218,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 3,
     sectionName: "算法重构与动能",
     sectionSub: "SECTION 03 // KINETIC VISCOSITY IMPLEMENTATION",
-    title: "惯性减噪齿轮：机械指针式的极准刻度滑动锁定",
+    title: "首页Feed流卡片多元化",
     titleEng: "Step 06: Magnetic Slide Lock & Precision Scale Easing",
     summary: "让滚动轨道仿佛内部拥有磁力凹槽。一旦划动即将止息，程序将用精确的极值余弦算法将画面精确锁定在视口中央，提供如同昂贵胶片盘微调旋钮在手中锁定的爽朗手感。",
     summaryEng: "Create invisible magnetic notches on the axis. As deceleration wraps, the system gently locks to center, offering the tactical feel of premium mechanical cameras.",
-    defaultImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/3JGZBCcs/75069799.jpg",
     metrics: "Alignment tolerance: 0.1px",
     coordinates: "KIN.ENG // STP.06"
   },
@@ -231,11 +233,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 4,
     sectionName: "网页实验性排版",
     sectionSub: "SECTION 04 // EXPERIMENTAL LAYOUTS & TYPOGRAPHY",
-    title: "小字美学与谦逊骨架：用单像素纤维重建视界",
+    title: "为什么搭建社区风格灵感簿",
     titleEng: "Minimal Skeletons: Elevating the Haunting Beauty of Micro-Type",
     summary: "摒弃粗厚色块。卡片由最细的单像素白色边界和暗夜发光线条分隔；字体全部降至10px以下，运用超宽字符间距让大片留白在没有负累的情况下展示其高贵的呼吸度。",
     summaryEng: "Avoid bulky cards. Structural borders are formed of single-pixel lines; fonts are scaled to micro size with wider tracking to allow negative areas to breathe.",
-    defaultImage: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/Sxpft2B5/75069807.jpg",
     metrics: "Border Weight: 0.5px hairline",
     coordinates: "EXP.TYP // STP.01"
   },
@@ -244,11 +246,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 4,
     sectionName: "网页实验性排版",
     sectionSub: "SECTION 04 // EXPERIMENTAL LAYOUTS & TYPOGRAPHY",
-    title: "字体字宽物理动态：随夜风舒缩的排版纤维",
+    title: "风格灵感页",
     titleEng: "Dynamic Serif Skeletal Flexing & Font Viscosities",
     summary: "我们将传统字体骨骼加入弹簧质点算法。字体的字宽、字重实时根据当下的阅读卷动速度、以及东京气象局的环境风速数值发生呼吸般的微缩舒张，使排版如植物般灵性生长。",
     summaryEng: "Traditional serif font characters react to scrolling kinetic streams or local weather stats. Skeletons widen and compress elegantly as if moved by gentle midnight air.",
-    defaultImage: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/qMKGLXFf/75069800.jpg",
     metrics: "Modulation Coefficient: 1.442",
     coordinates: "EXP.TYP // STP.02"
   },
@@ -257,11 +259,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 4,
     sectionName: "网页实验性排版",
     sectionSub: "SECTION 04 // EXPERIMENTAL LAYOUTS & TYPOGRAPHY",
-    title: "像素定位标：呼应瑞士现代学硬挺作风的微型印记",
+    title: "扩充风格展示类型，高效引导",
     titleEng: "Swiss Blueprint Decals: Subtle Engineering Technical Markers",
     summary: "在画幅周围精确标注着坐标、色阶范围、以及系统开机时间的数字。去除了没有章法的感性线条，用冷冰冰、克制至极的技术语言去传达一种当代美学的数字策展仪式感。",
     summaryEng: "Surround visual layouts with high-precision engineering data, telemetry ranges, and strict scales to structure digital artifacts with Swiss modern detail.",
-    defaultImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/qM0tQTYZ/75069809.jpg",
     metrics: "Decal alignment: 100% vector",
     coordinates: "EXP.TYP // STP.03"
   },
@@ -270,11 +272,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 4,
     sectionName: "网页实验性排版",
     sectionSub: "SECTION 04 // EXPERIMENTAL LAYOUTS & TYPOGRAPHY",
-    title: "16:9卡片深渊：极佳高斯模糊漫反射深度视觉投影",
+    title: "笔记结构优化",
     titleEng: "Diffuse Drop-Shadow: Overwhelming Depth in a Dark Abyss",
     summary: "在横向卡片背面投射出高达140像素模糊值、软边缘退化极其均匀的大跨度黑影。将原本平面的屏幕硬生生拉出三层物理空间，使影像在深沉中具有雕塑般的深度感。",
     summaryEng: "Project a massive, gradual 140px blurring shadow map behind cards, lifting horizontal rectangles physically off the monitor plane to evoke classic sculpture.",
-    defaultImage: "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?q=80&w=1200",
+    defaultImage: "https://i.postimg.cc/SxpftY0q/75069811.jpg",
     metrics: "Shadow Radius: 140px spread",
     coordinates: "EXP.TYP // STP.04"
   },
@@ -283,11 +285,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 4,
     sectionName: "网页实验性排版",
     sectionSub: "SECTION 04 // EXPERIMENTAL LAYOUTS & TYPOGRAPHY",
-    title: "黑白极值对比：在极致的黑暗中唤醒人性的感知力",
+    title: "设计规范搭建",
     titleEng: "High Contrast Void: Rekindling Vision in Complete Darkness",
     summary: "大面积采用超黑低流明背板，与极其明亮、细节丰沛的高灰摄影画面。通过把视线强制集中在明亮方槽中，模拟了古典教堂在穹顶引入一道绝对光流震撼心灵的建筑巧思。",
     summaryEng: "Contrast deep low-lumen backdrop canvases with brilliant, graphic photo frames. This geometry mimics how dark temples trap down-pouring natural daylight.",
-    defaultImage: "/src/assets/images/regenerated_image_1779503435858.png",
+    defaultImage: "https://i.postimg.cc/HkC9PcqF/75069808.jpg",
     metrics: "Contrast Ratio: Extrema",
     coordinates: "EXP.TYP // STP.05"
   },
@@ -296,11 +298,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 4,
     sectionName: "网页实验性排版",
     sectionSub: "SECTION 04 // EXPERIMENTAL LAYOUTS & TYPOGRAPHY",
-    title: "动态环境声音映射：把像素凹凸点翻译为管风琴般的低啸",
+    title: "策略二:买起来",
     titleEng: "Phonetic Mapping: Decoding Ancient Textures to Dark Low Synth",
     summary: "我们将摄影集中大理石的物理法线贴图和凹痕，通过实时矩阵转换，拼贴成了具有极低沉音高、能微微引起胸腔共鸣的管风琴式电子声，触碰即是听觉上的‘触摸泥质’。",
     summaryEng: "Translate normal-map texture values into long-wave sub-bass resonances, allowing visitors to feel the physical stones through atmospheric low-frequency synth.",
-    defaultImage: "/src/assets/images/regenerated_image_1779503447890.png",
+    defaultImage: "https://i.postimg.cc/qvdxZ6ff/75069810.jpg",
     metrics: "Acoustics loop: 24.2 Hz",
     coordinates: "EXP.TYP // STP.06"
   },
@@ -309,11 +311,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 4,
     sectionName: "网页实验性排版",
     sectionSub: "SECTION 04 // EXPERIMENTAL LAYOUTS & TYPOGRAPHY",
-    title: "无感呼吸网格：摒弃多余操作，以身触虚、以意感知",
+    title: "红包框架设计01/穿搭专属红包",
     titleEng: "Organic Bio-Trigger: Bypassing Buttons with Kinetic Breathing",
     summary: "在最后一组页面里，我们测试了完全抛弃指针的无感体验。图像随视线停留的深度而优雅伸长或翻滚，人机在这一刻达到无间融通的非介质化极致艺术状态。",
     summaryEng: "Banish cursor click demands. Layout layers morph organically matching user scroll speeds, arriving at a fluid state of ambient computing.",
-    defaultImage: "/src/assets/images/regenerated_image_1779502841284.png",
+    defaultImage: "https://i.postimg.cc/jSr4knVb/75069812.jpg",
     metrics: "Trigger delay: 0.00ms",
     coordinates: "EXP.TYP // STP.07"
   },
@@ -324,11 +326,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 5,
     sectionName: "独立研究与实践",
     sectionSub: "SECTION 05 // METROPOLIS SILENCE EXHIBITS",
-    title: "时空美学：新奢侈钟表流逝轨迹数字感知系统",
+    title: "红包框架设计02/店铺专属红包",
     titleEng: "Chrono-Aesthetics: Elegiac Hourglass Digital Clock for Timepieces",
     summary: "在东京知名媒体工作室实习期间，为新奢腕表品牌开发了三维时间粒子轨迹系统。时分秒不再是尖锐的指针，而是如细沙般漫舞的分形弧带。",
     summaryEng: "During an internship at a Tokyo studio, we engineered a 3D hourglass particle canvas for luxury timepiece brands. Hours and minutes dissolve like loose silicon sand.",
-    defaultImage: "/src/assets/images/regenerated_image_1779502502269.png",
+    defaultImage: "https://i.postimg.cc/nhtGw98H/75069815.jpg",
     metrics: "Platform: Three.js / WebGL",
     coordinates: "MET.SIL // EXH.01"
   },
@@ -337,11 +339,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 5,
     sectionName: "独立研究与实践",
     sectionSub: "SECTION 05 // METROPOLIS SILENCE EXHIBITS",
-    title: "智能座舱极致暗触感手控动力指纹雷达界面",
+    title: "多链路多场景红包传播",
     titleEng: "Hyper-Haptics: High-Aesthetic Tactile EV In-Car Dashboard",
     summary: "为豪华跑车智能座舱方案升级。摒弃了刺眼的日光蓝偏好，采用超低流明感的高对比夜宿线条，辅以特定手势深度回馈，消除了行驶操控视觉失焦。",
     summaryEng: "Upgraded user configurations for luxury EV sports cars. Low-lumen interfaces with high aesthetic contrast ensure safety while prioritizing minimalist touch sensations.",
-    defaultImage: "/src/assets/images/regenerated_image_1779502718405.png",
+    defaultImage: "https://i.postimg.cc/qvdxZ6f4/75069814.jpg",
     metrics: "Lumen count: <15 nits",
     coordinates: "MET.SIL // EXH.02"
   },
@@ -350,11 +352,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 5,
     sectionName: "独立研究与实践",
     sectionSub: "SECTION 05 // METROPOLIS SILENCE EXHIBITS",
-    title: "巨石材质解构：面向艺术学者的高分辨率物理档案网",
+    title: "浏览中红包传播",
     titleEng: "Monolithic Archives: Microscopic 12K Stone Digital Curation",
     summary: "为高端画廊建立石材和粗野主义水泥的高解纹理数据库。12K级微观法向贴图，在屏幕中生动反映了不同季节光照在质朴表面的温存与投影移动。",
     summaryEng: "Architected a materials library tracking the raw structural values of natural marbles and granites under evolving solar paths. It preserves the weight of mineral elements.",
-    defaultImage: "/src/assets/images/regenerated_image_1779502841284.png",
+    defaultImage: "https://i.postimg.cc/t4HNmn0C/75069816.jpg",
     metrics: "Texture Resolution: 12000px",
     coordinates: "MET.SIL // EXH.03"
   },
@@ -363,11 +365,11 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 5,
     sectionName: "独立研究与实践",
     sectionSub: "SECTION 05 // METROPOLIS SILENCE EXHIBITS",
-    title: "环境声谱对齐：动态弹性排版字符节奏论述",
+    title: "店铺滚动弹窗",
     titleEng: "Voice Dynamics: Voice Decibel Wave Adaptive Typography System",
     summary: "根据麦克风环境分贝值，字体字宽、字重实时以弹性力学运动方程式发生膨胀和缩微，从而使字符能够像自然界声波一样发出肉眼可见的物理律动。",
     summaryEng: "Voice wave decibels interact directly with standard type skeletons. Font families expand and retract via spring mechanics to visually embody spoken patterns.",
-    defaultImage: "/src/assets/images/regenerated_image_1779503435858.png",
+    defaultImage: "https://i.postimg.cc/XY0kDBMv/75069817.jpg",
     metrics: "Frequency Range: 20-20k Hz",
     coordinates: "MET.SIL // EXH.04"
   },
@@ -376,26 +378,13 @@ const SLIDES_DATA: SlideContent[] = [
     sectionIndex: 5,
     sectionName: "独立研究与实践",
     sectionSub: "SECTION 05 // METROPOLIS SILENCE EXHIBITS",
-    title: "除噪空白浏览器净化插件：反广告侵占注意力缓冲器",
+    title: "店铺结构优化",
     titleEng: "Anti-Clutter: Golden Ratio Browser Filtering Platform",
     summary: "设计的一款实验性脚本：自动将网站中闪烁、刺目的横幅广告、过度鲜艳的颜色，自动解析剥离，并全部置换为具有完美比例的极简无垠留白空域。",
     summaryEng: "A Chrome-extension prototype designed to parse noisy web grids, actively filtering busy ads or banner blocks and restoring quiet spaces based on golden ratio grids.",
-    defaultImage: "/src/assets/images/regenerated_image_1779503447890.png",
+    defaultImage: "https://i.postimg.cc/P5kQFvGx/75069818.jpg",
     metrics: "Attention recovery rate: 92.4%",
     coordinates: "MET.SIL // EXH.05"
-  },
-  {
-    id: 27,
-    sectionIndex: 5,
-    sectionName: "独立研究与实践",
-    sectionSub: "SECTION 05 // METROPOLIS SILENCE EXHIBITS",
-    title: "古典粗陶多维硬度拼贴艺术：听觉跨形态装置",
-    titleEng: "Touch of Earth: Coarse Vessel Soundscape Synthesizer",
-    summary: "在东京新媒体学院联合期间，将出土千年的硬陶质地与粗糙参数输入转化器，合成深沉、宏大的低沉重力声场，实现了用听觉“触摸”泥土质地的梦幻交错。",
-    summaryEng: "Digitized archeological pottery values to map spatial soundscapes, translating ancient coarse vessel topologies into atmospheric low-end synth echoes.",
-    defaultImage: "/src/assets/images/regenerated_image_1779503051514.png",
-    metrics: "Somatic focus level: 18.2 mins",
-    coordinates: "MET.SIL // EXH.06"
   }
 ];
 
@@ -405,7 +394,7 @@ export default function ProjectTwoImmersive({
 }: ProjectTwoImmersiveProps) {
   const imageUrls = SLIDES_DATA.map(s => s.defaultImage);
 
-  // Track the current active slide on screen (0 is Cover, 1-27 are content slides)
+  // Track the current active slide on screen (0 is Cover, 1-26 are content slides)
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
 
   // Safe reference monitoring for scrolling interaction
@@ -418,7 +407,7 @@ export default function ProjectTwoImmersive({
   const [hoverPercentage, setHoverPercentage] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  // Helper to extract granular interaction values from pointer events (0 to 27 slides)
+  // Helper to extract granular interaction values from pointer events (0 to 26 slides)
   const getProgressSpecs = (clientX: number) => {
     if (!progressBarRef.current) return { percentage: 0, index: 0 };
     const rect = progressBarRef.current.getBoundingClientRect();
@@ -427,7 +416,7 @@ export default function ProjectTwoImmersive({
     const relativeX = clientX - left;
     let percentage = relativeX / width;
     percentage = Math.max(0, Math.min(1, percentage));
-    const targetIndex = Math.round(percentage * 27);
+    const targetIndex = Math.round(percentage * 26);
     return { percentage, index: targetIndex };
   };
 
@@ -512,7 +501,7 @@ export default function ProjectTwoImmersive({
       }
     }
 
-    if (bestIndex !== activeSlideIndex && bestIndex >= 0 && bestIndex <= 27) {
+    if (bestIndex !== activeSlideIndex && bestIndex >= 0 && bestIndex <= 26) {
       setActiveSlideIndex(bestIndex);
     }
   };
@@ -524,7 +513,7 @@ export default function ProjectTwoImmersive({
   };
 
   const handleNextSlide = () => {
-    if (activeSlideIndex < 27) {
+    if (activeSlideIndex < 26) {
       scrollToSlide(activeSlideIndex + 1);
     }
   };
@@ -560,7 +549,7 @@ export default function ProjectTwoImmersive({
         <div className="flex items-center space-x-3 sm:space-x-4">
           <span className="block w-2 h-2 rounded-full bg-accent-lavender shadow-[0_0_8px_#8C7CFF] animate-pulse" />
           <div className="font-mono text-[9px] text-accent-lavender tracking-[0.25em] uppercase">
-            ACTIVE EXHIBITING // {activeSlideIndex === 0 ? "封面导引 : INTRO" : `第 ${activeSlideIndex} / 27 幅`}
+            ACTIVE EXHIBITING // {activeSlideIndex === 0 ? "封面导引 : INTRO" : `第 ${activeSlideIndex} / 26 幅`}
           </div>
           <div className="font-mono text-[9px] text-[#ffffff20] tracking-widest hidden xl:block border-l border-white/10 pl-4">
             CORE: HONG QI Portfolio.2
@@ -570,15 +559,15 @@ export default function ProjectTwoImmersive({
 
       {/* SENSORY PROGRESS FOOTER BAR - TACTILE GAUGE CALIBRATION SCALE */}
       <div 
-        ref={progressBarRef}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
-        onPointerEnter={() => setIsHovered(true)}
-        onPointerLeave={() => { if (!isDraggingProgress) setIsHovered(false); }}
-        className="fixed bottom-3 left-6 md:left-[280px] right-6 md:right-11 z-40 h-10 flex items-center justify-center cursor-pointer touch-none select-none group"
-        title="拖动或点击进度条跳转页面 / Drag or Click to jump"
+         ref={progressBarRef}
+         onPointerDown={handlePointerDown}
+         onPointerMove={handlePointerMove}
+         onPointerUp={handlePointerUp}
+         onPointerCancel={handlePointerUp}
+         onPointerEnter={() => setIsHovered(true)}
+         onPointerLeave={() => { if (!isDraggingProgress) setIsHovered(false); }}
+         className="fixed bottom-3 left-6 md:left-[280px] right-6 md:right-11 z-40 h-10 flex items-center justify-center cursor-pointer touch-none select-none group"
+         title="拖动或点击进度条跳转页面 / Drag or Click to jump"
       >
         {/* Transparent glassmorphism backing */}
         <div className="absolute inset-0 bg-[#070707]/60 backdrop-blur-md rounded-xs border border-white/[0.04] group-hover:bg-[#070707]/80 group-hover:border-white/[0.08] transition-all duration-300 shadow-[0_12px_40px_rgba(0,0,0,0.8)]" />
@@ -591,26 +580,17 @@ export default function ProjectTwoImmersive({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 12, scale: 0.95 }}
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
-              className="absolute bottom-12 bg-black/95 border border-white/15 p-3 rounded-xs shadow-[0_30px_70px_rgba(0,0,0,0.98)] backdrop-blur-xl pointer-events-none select-none w-64 flex flex-col space-y-1 z-50 font-mono text-left"
+              className="absolute bottom-12 bg-black/95 border border-white/10 px-3 py-2 rounded-xs shadow-[0_30px_70px_rgba(0,0,0,0.98)] backdrop-blur-xl pointer-events-none select-none w-max max-w-[280px] xs:max-w-[340px] sm:max-w-[500px] flex flex-col space-y-1 z-50 font-mono text-left"
               style={{ 
                 left: `${Math.max(10, Math.min(90, hoverPercentage * 100))}%`,
                 transform: "translateX(-50%)"
               }}
             >
-              <div className="flex justify-between items-center text-[7px] text-[#ffffff30] tracking-[0.2em] border-b border-white/5 pb-1 uppercase font-bold">
-                <span>Curator HUD Scanner //</span>
-                <span className="text-accent-lavender">ROOM {hoverIndex.toString().padStart(2, '0')}</span>
+              <div className="text-[10px] text-accent-lavender font-bold tracking-wider">
+                PAGE {(hoverIndex + 1).toString().padStart(2, '0')}
               </div>
-              <div className="font-sans text-[11px] font-light text-[#F5F5F2] tracking-wide truncate">
-                {hoverIndex === 0 ? "时间减速与建筑学研究 02" : SLIDES_DATA[hoverIndex - 1]?.title}
-              </div>
-              <div className="flex items-center justify-between text-[7.5px] leading-none pt-0.5 font-mono text-text-slate/60">
-                <span className="text-[#ffffff25] uppercase tracking-normal">
-                  {hoverIndex === 0 ? "INTRO // EXH" : (SLIDES_DATA[hoverIndex - 1]?.coordinates || "SYS.ID")}
-                </span>
-                <span className="text-accent-blue/70 uppercase font-light">
-                  {hoverIndex === 0 ? "COVER FRAME" : (SLIDES_DATA[hoverIndex - 1]?.metrics || "NO.METRICS")}
-                </span>
+              <div className="font-sans text-[12px] font-medium text-[#F5F5F2] tracking-wide truncate">
+                {hoverIndex === 0 ? "小红书-市集穿搭体验提升" : SLIDES_DATA[hoverIndex - 1]?.title}
               </div>
             </motion.div>
           )}
@@ -619,9 +599,9 @@ export default function ProjectTwoImmersive({
         {/* Absolute base timeline rules & visual tracks */}
         <div className="w-[calc(100%-32px)] h-[3px] bg-white/5 relative flex items-center rounded-full transition-all duration-300">
           
-          {/* Static subtle tick marks representing 27 slide increments */}
-          {Array.from({ length: 28 }).map((_, i) => {
-            const isMajor = i % 3 === 0 || i === 27;
+          {/* Static subtle tick marks representing 26 slide increments */}
+          {Array.from({ length: 27 }).map((_, i) => {
+            const isMajor = i % 3 === 0 || i === 26;
             const isActive = i <= activeSlideIndex;
             const isUnderHover = hoverIndex !== null && i === hoverIndex && isHovered;
             return (
@@ -629,7 +609,7 @@ export default function ProjectTwoImmersive({
                 key={i}
                 className="absolute transition-all duration-300 pointer-events-none"
                 style={{ 
-                  left: `${(i / 27) * 100}%`,
+                  left: `${(i / 26) * 100}%`,
                   transform: "translateX(-50%)" 
                 }}
               >
@@ -660,7 +640,7 @@ export default function ProjectTwoImmersive({
           {/* Active Progress Filler Line */}
           <motion.div 
             className="absolute left-0 top-0 h-full bg-gradient-to-r from-accent-lavender to-accent-blue rounded-full shadow-[0_0_12px_rgba(140,124,255,0.6)] cursor-pointer"
-            animate={{ width: `${(activeSlideIndex / 27) * 100}%` }}
+            animate={{ width: `${(activeSlideIndex / 26) * 100}%` }}
             transition={{ duration: isDraggingProgress ? 0 : 0.3, ease: "easeOut" }}
           />
 
@@ -676,7 +656,7 @@ export default function ProjectTwoImmersive({
           {/* Glowing Tactile handle thumb on the progress endpoint */}
           <motion.div
             className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)] border border-neutral-950 cursor-pointer pointer-events-none z-20"
-            animate={{ left: `${(activeSlideIndex / 27) * 100}%` }}
+            animate={{ left: `${(activeSlideIndex / 26) * 100}%` }}
             transition={{ duration: isDraggingProgress ? 0 : 0.3, ease: "easeOut" }}
             style={{ transform: "translate(-50%, -50%)" }}
           />
@@ -697,7 +677,7 @@ export default function ProjectTwoImmersive({
         >
           <div className="w-full aspect-video border border-white/10 p-1 bg-[#121212]/30 shadow-[0_30px_100px_rgba(0,0,0,0.85)] relative overflow-hidden flex items-center justify-center rounded-sm">
             <img 
-              src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1200" 
+              src={resolveImagePath("/src/assets/images/regenerated_image_1779422815932.jpg")} 
               alt="Kinetic Void Cover Background" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
@@ -716,7 +696,7 @@ export default function ProjectTwoImmersive({
           </div>
         </div>
 
-        {/* SLIDES 01 TO 27: 16:9 IMAGE VISUAL CARDS */}
+        {/* SLIDES 01 TO 26: 16:9 IMAGE VISUAL CARDS */}
         {SLIDES_DATA.map((slide, index) => {
           const slideNum = slide.id;
           const currentImage = imageUrls[index];
@@ -734,12 +714,28 @@ export default function ProjectTwoImmersive({
                 <span className="absolute bottom-2 left-2 font-mono text-[6.5px] sm:text-[7.5px] text-[#ffffff15] tracking-wide pointer-events-none font-light">REI SATO CURATORIAL PORTFOLIO</span>
                 <span className="absolute bottom-2 right-2 font-mono text-[7px] sm:text-[8px] text-accent-lavender/30 tracking-widest pointer-events-none">HONG QI © 2026</span>
 
-                <img
-                  src={currentImage}
-                  alt={slide.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] object-center brightness-[0.88] grayscale-[0.05] group-hover:grayscale-0 group-hover:brightness-100"
-                />
+                {slide.title === "用户研究/访谈前准备" || slideNum === 5 ? (
+                  <div className="w-full h-full overflow-y-auto relative scroll-smooth pointer-events-auto cursor-ns-resize inner-scroll-viewport" style={{ scrollbarWidth: 'thin' }}>
+                    <img
+                      src={resolveImagePath(currentImage)}
+                      alt={slide.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-auto block brightness-[0.88] grayscale-[0.05] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-700"
+                    />
+                    {/* Visual instruction overlay that fades on hover */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/85 backdrop-blur-md px-3.5 py-2.5 border border-white/10 rounded-sm pointer-events-none opacity-100 group-hover:opacity-0 transition-opacity duration-500 flex flex-col items-center text-center shadow-xl">
+                      <span className="font-mono text-[7.5px] tracking-[0.25em] text-accent-lavender mb-1.5 uppercase">[ DETAILED DESIGN SPECIFICATION ]</span>
+                      <span className="font-sans text-[10px] text-[#F5F5F2] font-light">↕ 鼠标滚轮/拖动手势：可上下滑动查看完整内容</span>
+                    </div>
+                  </div>
+                ) : (
+                  <img
+                    src={resolveImagePath(currentImage)}
+                    alt={slide.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03] object-center brightness-[0.88] grayscale-[0.05] group-hover:grayscale-0 group-hover:brightness-100"
+                  />
+                )}
 
                 {/* Ambient glow mask */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
@@ -757,7 +753,7 @@ export default function ProjectTwoImmersive({
       {/* MINIMIZED TEXT DESCRIPTION AT THE BOTTOM LEFT CORNER */}
       <div className="fixed bottom-12 left-6 md:left-[280px] max-w-[340px] sm:max-w-[420px] md:max-w-md z-30 pointer-events-none text-left">
         <AnimatePresence mode="wait">
-          {activeSlideIndex === 0 ? (
+          {activeSlideIndex === 0 && (
             <motion.div
               key="intro-desc-02"
               initial={{ opacity: 0, y: 15 }}
@@ -767,52 +763,16 @@ export default function ProjectTwoImmersive({
               className="space-y-2 pointer-events-auto bg-black/40 backdrop-blur-md p-4 rounded-sm border border-white/5 shadow-2xl"
             >
               <span className="font-mono text-[8.5px] text-accent-blue tracking-[0.25em] uppercase block">
-                EXHIBITION INITIATION //
+                PROJECT INITIATION //
               </span>
               
               <h3 className="text-sm sm:text-base font-light font-sans tracking-wide text-[#F5F5F2] uppercase leading-tight" id="project-02-title">
-                动态虚无-时间减速与建筑学研究02
+                小红书-市集穿搭体验提升
               </h3>
               
               <p className="text-[11px] text-text-slate/60 font-sans font-light leading-relaxed tracking-wide">
-                本展厅为全景数字体验区。通过两侧拖移或右下控制杆深度探索。在极致的小字美学中，27幅16:9纯净作品将人与物理空隙以低流明、多维触控完美呈送。
+                通过设计优化小红书市集穿搭模块相关界面，优化穿搭模块消费体验，提高市集购买力，增强用户消费粘性，推动小红书市集电商发展。
               </p>
-            </motion.div>
-          ) : (
-            // Direct presentation of current active slide title and description for highly curated reading
-            <motion.div
-              key={`slide-desc-${activeSlideIndex}`}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.35 }}
-              className="space-y-2 pointer-events-auto bg-black/50 backdrop-blur-md p-4 rounded-sm border border-white/5 shadow-3xl"
-            >
-              <div className="flex justify-between items-center text-[7.5px] tracking-widest text-[#ffffff30] font-mono leading-none uppercase">
-                <span>{SLIDES_DATA[activeSlideIndex - 1]?.sectionSub}</span>
-                <span className="text-accent-blue font-semibold">{SLIDES_DATA[activeSlideIndex - 1]?.coordinates}</span>
-              </div>
-              
-              <h3 className="text-xs sm:text-sm font-sans font-normal tracking-wide text-[#F5F5F2] uppercase leading-tight">
-                {SLIDES_DATA[activeSlideIndex - 1]?.title}
-              </h3>
-
-              <div className="text-[7.5px] font-mono text-[#ffffff20] uppercase leading-none tracking-widest pt-0.5">
-                {SLIDES_DATA[activeSlideIndex - 1]?.titleEng}
-              </div>
-              
-              <p className="text-[10.5px] text-text-slate/75 font-sans font-light leading-relaxed tracking-wide border-t border-white/5 pt-1.5 mt-1.5">
-                {SLIDES_DATA[activeSlideIndex - 1]?.summary}
-              </p>
-
-              <p className="text-[9.5px] text-[#ffffff35] italic font-sans font-light leading-relaxed tracking-wide">
-                {SLIDES_DATA[activeSlideIndex - 1]?.summaryEng}
-              </p>
-
-              <div className="flex justify-between items-center text-[7.5px] text-accent-lavender/40 font-mono leading-none pt-1">
-                <span>READING METRIC MATRIX:</span>
-                <span className="font-bold tracking-wider">{SLIDES_DATA[activeSlideIndex - 1]?.metrics}</span>
-              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -832,9 +792,9 @@ export default function ProjectTwoImmersive({
         <span className="text-[#ffffff15] pointer-events-none select-none">|</span>
         <button
           onClick={handleNextSlide}
-          disabled={activeSlideIndex === 27}
+          disabled={activeSlideIndex === 26}
           className={`flex items-center space-x-1 px-1.5 py-1 transition-colors cursor-pointer bg-transparent border-0 outline-none uppercase ${
-            activeSlideIndex === 27 ? "text-[#ffffff15] cursor-not-allowed" : "text-white font-bold hover:text-accent-lavender"
+            activeSlideIndex === 26 ? "text-[#ffffff15] cursor-not-allowed" : "text-white font-bold hover:text-accent-lavender"
           }`}
         >
           <span>NEXT →</span>

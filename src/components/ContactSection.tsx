@@ -60,11 +60,11 @@ export default function ContactSection({ onScrollToTop }: ContactSectionProps) {
         <p className="text-accent-lavender font-mono text-[11px] tracking-[0.25em] mb-4 uppercase">
           03 // TRANSMISSION / TRANSMIT
         </p>
-        <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light font-display tracking-tight text-linen leading-none mb-6">
-          连接。 <span className="font-serif italic font-light text-text-slate/60">协同合作。</span>
+        <h2 className="font-light font-display tracking-tight text-linen mb-6 text-[48px] leading-[46px]">
+          联系 <span className="font-display italic font-light text-text-slate/60">方式</span>
         </h2>
-        <p className="max-w-md font-mono text-[10px] text-text-slate/40 tracking-wider uppercase leading-relaxed mb-12">
-          寻求与数字艺术总监、前卫建筑社群或实验性奢华机构的深度联结。
+        <p className="max-w-md font-mono text-text-slate/40 tracking-wider uppercase mb-12 text-[13px] leading-[14.25px]">
+          联系我，便于了解关于更多信息
         </p>
 
         <div className="w-full h-[1px] bg-white/5" />

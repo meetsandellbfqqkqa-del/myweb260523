@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { profileData, projectsData } from "./data";
@@ -9,6 +9,7 @@ import ContactSection from "./components/ContactSection";
 import ProjectDetail from "./components/ProjectDetail";
 
 export default function App() {
+  const isProgrammaticScroll = useRef<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>(() => {
     try {
       return localStorage.getItem("activeSection") || "about";
@@ -60,37 +61,58 @@ export default function App() {
     } catch (_) {}
   }, []);
 
-  // 1. Double-linked scroll section observer (IntersectionObserver)
+  // 1. Double-linked scroll section observer & score-based vertical position tracker
   useEffect(() => {
-    if (activeProjectId !== null) return; // Disable intersection observing inside detail views
+    if (activeProjectId !== null) return; // Disable scroll tracking inside detail views
 
-    const sectionIds = ["about", "project-01", "project-02", "project-03", "contact"];
-    const observers = sectionIds.map((id) => {
-      const el = document.getElementById(id);
-      if (!el) return null;
+    const handleScroll = () => {
+      if (isProgrammaticScroll.current) return;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setActiveSection(id);
-            }
-          });
-        },
-        {
-          rootMargin: "-25% 0px -55% 0px", // Strict focus viewport range for perfect section-highlight timing
-        }
-      );
-      observer.observe(el);
-      return { observer, el };
-    });
+      const sectionIds = ["about", "project-01", "project-02", "project-03", "contact"];
 
-    return () => {
-      observers.forEach((obs) => {
-        if (obs) {
-          obs.observer.unobserve(obs.el);
+      // Case A: Near top of the viewport -> "about"
+      if (window.scrollY < 80) {
+        setActiveSection("about");
+        return;
+      }
+
+      // Case B: Near bottom of the page -> "contact"
+      const threshold = 100; // pixels from the bottom
+      const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - threshold;
+      if (isAtBottom) {
+        setActiveSection("contact");
+        return;
+      }
+
+      // Case C: Calculate distance of each element's top edge to the focal point
+      const focalPoint = window.innerHeight * 0.35; // optimal reading attention line
+      let closestSectionId = "about";
+      let minDistance = Infinity;
+
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        const rect = el.getBoundingClientRect();
+        const distanceToFocalPoint = Math.abs(rect.top - focalPoint);
+
+        if (distanceToFocalPoint < minDistance) {
+          minDistance = distanceToFocalPoint;
+          closestSectionId = id;
         }
       });
+
+      if (closestSectionId) {
+        setActiveSection(closestSectionId);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Run immediately on dependency change to ensure correct active item highlight
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [activeProjectId]);
 
@@ -103,34 +125,59 @@ export default function App() {
       setActiveProjectId(projectId);
       setActiveSection(sectionId);
     } else {
+      // Set highlight immediately so UI updates instantly
+      setActiveSection(sectionId);
+
       // Return to homepage and slide dynamically to requested element
       if (activeProjectId !== null) {
+        isProgrammaticScroll.current = true;
         setActiveProjectId(null);
-        setActiveSection(sectionId);
+        
+        // Give enough frame time for elements to mount and layout to compute
         setTimeout(() => {
           const el = document.getElementById(sectionId);
           if (el) {
             el.scrollIntoView({ behavior: "smooth" });
           }
-        }, 120);
+          // Prevent standard scroll events from overriding this highlight during navigation
+          setTimeout(() => {
+            isProgrammaticScroll.current = false;
+            setActiveSection(sectionId);
+          }, 1000);
+        }, 300);
       } else {
+        isProgrammaticScroll.current = true;
         const el = document.getElementById(sectionId);
         if (el) {
           el.scrollIntoView({ behavior: "smooth" });
         }
+        setTimeout(() => {
+          isProgrammaticScroll.current = false;
+          setActiveSection(sectionId);
+        }, 1000);
       }
     }
   };
 
   const handleScrollToTop = () => {
+    isProgrammaticScroll.current = true;
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setActiveSection("about");
+    setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 1000);
   };
 
   const handleScrollToWorks = () => {
+    isProgrammaticScroll.current = true;
     const el = document.getElementById("works-gallery");
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
+    setActiveSection("project-01");
+    setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 1000);
   };
 
   return (

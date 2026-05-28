@@ -5,6 +5,7 @@ import { Project } from "../types";
 import { projectsData } from "../data";
 import ProjectOneImmersive from "./ProjectOneImmersive";
 import ProjectTwoImmersive from "./ProjectTwoImmersive";
+import ProjectThreeImmersive from "./ProjectThreeImmersive";
 
 interface ProjectDetailProps {
   key?: string;
@@ -42,6 +43,15 @@ export default function ProjectDetail({
   if (projectId === "project-02") {
     return (
       <ProjectTwoImmersive
+        onBack={onBack}
+        onNavigateToProject={onNavigateToProject}
+      />
+    );
+  }
+
+  if (projectId === "project-03") {
+    return (
+      <ProjectThreeImmersive
         onBack={onBack}
         onNavigateToProject={onNavigateToProject}
       />
