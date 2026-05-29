@@ -5,7 +5,7 @@ export const profileData: Profile = {
   lastName: "旗",
   tagline: "UX设计师 & AI技术爱好",
   story: "HIII，欢迎来到我的网站，我是洪旗。本科在中央美院，研究生目前在中国美院在读，性格开朗，喜欢拥抱新技术。目前经历主要包含在滴滴的产品实习经历，小红书和快手的项目经历，掌握FIGMA， AIGC视觉生成，VIBE CODING等技能",
-  imageUrl: "src/assets/images/regenerated_image_1779420977230.png",
+  imageUrl: "/src/assets/images1/regenerated_image_1779420977230.webp",
   email: "2860816256@qq.com",
   phone: "+86 15228718329",
   wechat: "15228718329",
@@ -23,7 +23,7 @@ export const projectsData: Project[] = [
     role: "首席创意技术专家 & UX总监",
     client: "巴黎空灵精粹 (Ethereal Essence Paris)",
     duration: "4 个月",
-    overviewImage: "/src/assets/images/regenerated_image_1779422785891.png",
+    overviewImage: "/src/assets/images1/首页.webp",
     conceptTitle: "无形之物的具象转译。",
     conceptDescription: "ETHER 是一个交互空间项目，旨在为无形的数字数据流赋予形态。为巴黎 Ethereal Essence 打造，我们设计了一个实体空间，其中局部气流、音景和对用户生物特征输入做出反应的投影映射创造了独特的嗅觉-视觉反馈循环。数字 UI 被剥离了所有典型指标，以此来让位给人类的好奇心和持续的氛围感反馈。",
     showcaseImages: [
@@ -56,7 +56,7 @@ export const projectsData: Project[] = [
     role: "UX架构师 & 视觉程序员",
     client: "东京现代空间美术馆",
     duration: "6 个月",
-    overviewImage: "/src/assets/images/regenerated_image_1779422815932.jpg",
+    overviewImage: "/src/assets/images 2/75069789.webp",
     conceptTitle: "于速度中探索静谧。",
     conceptDescription: "在一个被即时信息高度饱和的世界中，KINETIC VOID 充当了数字避难所。基于具有惯性的物理网格，作品将用户的滚动行为减慢至微秒级。利用程序性生成画布，它展示了基于东京最安静场所的建筑比例而缓慢组装和消隐的抽象混凝土楼梯与光学会学结构。",
     showcaseImages: [
@@ -89,7 +89,7 @@ export const projectsData: Project[] = [
     role: "艺术总监 & 策展人",
     client: "独立出版机构 (Independent Publication Co.)",
     duration: "8 个月",
-    overviewImage: "/src/assets/images/regenerated_image_1779422818769.png",
+    overviewImage: "/src/assets/images 3/regenerated_image_1779694602997.webp",
     conceptTitle: "空无之地的形态。",
     conceptDescription: "在日本美学中，“间”（Ma）是对事物之间纯粹寂静与空间的颂扬。本项目是一个经过策划、音画同步的摄影社论，赞美了东京深夜寂静的街巷、空旷的列车车厢以及穿透夜雾的单盏路灯。网站将这一感官序列平铺于横向时间线上，并采用了极具张力的排版对比。",
     showcaseImages: [

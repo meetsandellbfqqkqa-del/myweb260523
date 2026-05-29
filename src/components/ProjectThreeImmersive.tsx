@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Image, 
-  Layers, 
-  Sliders, 
-  RotateCcw, 
-  ChevronDown, 
-  Sparkles, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Image,
+  Layers,
+  Sliders,
+  RotateCcw,
+  ChevronDown,
+  Sparkles,
   Settings,
   Tv,
   Eye,
@@ -48,7 +48,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Atmosphere of Ma: Suspending the Gaze in the Gaps",
     summary: "日本美学中的“间”（Ma）既不是纯粹的虚空，也不是实体的堆砌，而是事物与事物之间留存的灵性距离。在这里，我们引导用户的视线在无常的留白中自主呼吸。",
     summaryEng: "The philosophy of Ma celebrates the invisible thresholds that define objects. We orchestrate digital pauses to invite the observer into a serene, meditative reading state.",
-    defaultImage: "https://i.postimg.cc/Jh8sPxJD/xiang-mu-chai-jie.png",
+    defaultImage: "/src/assets/images 3/regenerated_image_1779693479885.webp",
     metrics: "Ma-Interval: 1.618 Golden Ratio",
     coordinates: "MA.SLNC // PRF.01"
   },
@@ -61,7 +61,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Monochrome Latency: Under-saturated Tonalities of the Void",
     summary: "拒绝喧嚣的高对比数字直射，利用中性微光摄影底图，在屏幕中还原如细腻陶土般的漫反射暗影，在明与暗消长的那条线上，摸索微波粼粼的静寂感知。",
     summaryEng: "Bypassing intense digital screen illumination, we craft under-saturated lightscapes that preserve the soft granular nature of night air and plaster surfaces.",
-    defaultImage: "https://i.postimg.cc/4Nr7hsx2/fang-an-gou-si.png",
+    defaultImage: "/src/assets/images 3/regenerated_image_1779728042054.webp",
     metrics: "Luminance Easing: Midtone Falloff",
     coordinates: "MA.SLNC // PRF.02"
   },
@@ -74,7 +74,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Nameless Corridors: Deep Narrow Paths Behind Shinjuku",
     summary: "远离繁华喧嚣的涉谷，我们在新宿老建筑之间的窄巷中，用镜头收集仅存的黑白质重。高耸外墙形成狭长的阴影，将现实世界的多余噪音完美吸附。",
     summaryEng: "Slipping behind towering Shinjuku glass monoliths, we capture quiet alley crevices. Lofty concrete walls cast deep vertical shadows, acting as psychological sound traps.",
-    defaultImage: "https://i.postimg.cc/Fs2dJNKv/feng-ge-tan-suo.png",
+    defaultImage: "/src/assets/images 3/regenerated_image_1779725475567.webp",
     metrics: "Visual Noise Bias: -12.4dB",
     coordinates: "MA.SLNC // SHD.01"
   },
@@ -87,7 +87,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Architectural Tonalities: Gypsum Retraction Under Moonpaths",
     summary: "探讨物体的边缘是如何在黑夜中与暗空消融在一起的。没有多余的人造锐化，光晕在湿滑的大理石表面上，划出一道沉静、渐变的漫步视界。",
     summaryEng: "Investigate how raw building profiles dissolve gently into empty night backdrops. Shadows glide across clean, wet facades, forming a canvas of quiet transitions.",
-    defaultImage: "https://i.postimg.cc/FKx7qSVQ/Ai-yuan-su-sheng-cheng.png",
+    defaultImage: "/src/assets/images 3/Ai 元素生成.webp",
     metrics: "Shadow Falloff: Natural Gaussian",
     coordinates: "MA.SLNC // SHD.02"
   },
@@ -100,7 +100,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Transit Abyss: Mind Wander on the Last Yamanote Train",
     summary: "深夜11点的车厢，被磨损的皮质拉手、泛黄的窗框与远方渐隐的站台拉成一条长长的寂静通道。窗外的极速流光退化，仅有时间自身的轻轻低震。",
     summaryEng: "Late-night cabins stretch into perspective tubes of silence. Fleeting neon lights outside turn into soft abstract tracers, leaving passengers inside their private realms.",
-    defaultImage: "https://i.postimg.cc/c4Vg80JN/xiang-mu-chai-jie-1.png",
+    defaultImage: "src/assets/images 3/首页设计.webp",
     metrics: "Vibration Index: Constant low-end Hz",
     coordinates: "MA.SLNC // DYL.01"
   },
@@ -113,7 +113,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Solitary Beacon: Warm Luminous Cones Over Midnight T-Junctions",
     summary: "东京郊区的小巷交叉点，一盏橙色钠灯下，潮湿的水汽在半空中慢速舞动。整个视口被光与暗对称拉切，将寂静物质化，如同深海中等待的呼吸气孔。",
     summaryEng: "A single sodium vapor lamp projects warm orange cones over asphalt. Hovering ambient mists materialize the quiet air, acting as a sensory lung of the neighborhood.",
-    defaultImage: "/src/assets/images/regenerated_image_1779894635645.jpg",
+    defaultImage: "src/assets/images 3/内容页1.webp",
     metrics: "Color Temp: 2200K Sodium Glow",
     coordinates: "MA.SLNC // DYL.02"
   },
@@ -126,7 +126,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Hydromorphic Grains: Acoustic Absorption of wet Asphalt",
     summary: "雨后的路面在镜面投射中泛着沥青黑。细密的水滴填补了柏油碎石的缝隙，无形中吸收了高频啸叫，将整个街区压低到极低、微弱、沉实的无声境界。",
     summaryEng: "Post-rain road surfaces shimmer with deep pitch-black paint. Millions of water droplets fill paving crevices, dampening high-end noise to settle urban acoustics.",
-    defaultImage: "/src/assets/images/regenerated_image_1779894896476.jpg",
+    defaultImage: "src/assets/images 3/内容页2.webp",
     metrics: "Noise Dampening Rate: +38%",
     coordinates: "MA.SLNC // CLM.01"
   },
@@ -139,7 +139,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Shinto Seclusion: Shadows of Pine needles in Hidden Shrines",
     summary: "城市夹缝中的斑驳鸟居，树叶微抚之声被古树林紧紧裹藏。我们在空气微粒中看到了历史与当下的对峙，多出的信息感在此被过滤，只留下宁静心流。",
     summaryEng: "Nestled between Shinjuku walls, Torii gates gather botanical safety. Shadows of ancient trees absorb footsteps, offering a protective buffer of serene awareness.",
-    defaultImage: "https://i.postimg.cc/5tJXngvn/zong-jie-ye-she-ji.png",
+    defaultImage: "/src/assets/images 3/总结页设计.webp",
     metrics: "Relative Decibel: 16 dBA",
     coordinates: "MA.SLNC // CLM.02"
   },
@@ -152,7 +152,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Stygian River: Stagnant Waters Mirroring High-Voltage Fades",
     summary: "隅田川分支的一处废弃渠口。凝滞的水面宛如墨玉，默默平铺着远方电网高压塔的微弱倒影。河面上浮游着缓慢的时间粘性，犹如胶片底带的漫匀冲洗。",
     summaryEng: "An idle canal off the main Sumida. Tectonic water panels lie as flat as black glass, holding fading reflections of high-voltage masts in a state of terminal slow decay.",
-    defaultImage: "https://i.postimg.cc/vmy43h9N/Ai-yuan-su-sheng-cheng-1.png",
+    defaultImage: "/src/assets/images 3/Ai 元素生成-1.webp",
     metrics: "Fluency factor: Viscous static",
     coordinates: "MA.SLNC // EPI.01"
   }
@@ -214,12 +214,12 @@ export default function ProjectThreeImmersive({
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!progressBarRef.current) return;
     const { percentage, index } = getProgressSpecs(e.clientX);
-    
+
     setIsDraggingProgress(true);
     setIsHovered(true);
     setHoverPercentage(percentage);
     setHoverIndex(index);
-    
+
     progressBarRef.current.setPointerCapture(e.pointerId);
     scrollToSlide(index, "smooth");
   };
@@ -227,10 +227,10 @@ export default function ProjectThreeImmersive({
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!progressBarRef.current) return;
     const { percentage, index } = getProgressSpecs(e.clientX);
-    
+
     setHoverPercentage(percentage);
     setHoverIndex(index);
-    
+
     if (isDraggingProgress) {
       scrollToSlide(index, "auto");
     }
@@ -255,7 +255,7 @@ export default function ProjectThreeImmersive({
     const scrollLeft = container.scrollLeft;
     const containerWidth = container.offsetWidth;
     const slides = container.children;
-    
+
     let bestIndex = activeSlideIndex;
     let minDistance = Infinity;
 
@@ -328,7 +328,7 @@ export default function ProjectThreeImmersive({
       </div>
 
       {/* SENSORY PROGRESS FOOTER BAR - TACTILE GAUGE CALIBRATION SCALE */}
-      <div 
+      <div
          ref={progressBarRef}
          onPointerDown={handlePointerDown}
          onPointerMove={handlePointerMove}
@@ -351,7 +351,7 @@ export default function ProjectThreeImmersive({
               exit={{ opacity: 0, y: 12, scale: 0.95 }}
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
               className="absolute bottom-12 bg-black/95 border border-white/15 px-3 py-2 rounded-xs shadow-[0_30px_70px_rgba(0,0,0,0.98)] backdrop-blur-xl pointer-events-none select-none w-max max-w-[280px] xs:max-w-[340px] sm:max-w-[500px] flex flex-col space-y-1 z-50 font-mono text-left"
-              style={{ 
+              style={{
                 left: `${Math.max(10, Math.min(90, hoverPercentage * 100))}%`,
                 transform: "translateX(-50%)"
               }}
@@ -368,7 +368,7 @@ export default function ProjectThreeImmersive({
 
         {/* Absolute base timeline rules & visual tracks */}
         <div className="w-[calc(100%-32px)] h-[3px] bg-white/5 relative flex items-center rounded-full transition-all duration-300">
-          
+
           {/* Static subtle tick marks representing 9 slide increments */}
           {Array.from({ length: 10 }).map((_, i) => {
             const isMajor = i % 2 === 0 || i === 9;
@@ -378,24 +378,24 @@ export default function ProjectThreeImmersive({
               <div
                 key={i}
                 className="absolute transition-all duration-300 pointer-events-none"
-                style={{ 
+                style={{
                   left: `${(i / 9) * 100}%`,
-                  transform: "translateX(-50%)" 
+                  transform: "translateX(-50%)"
                 }}
               >
-                <div 
+                <div
                   className={`w-[1px] rounded-full transition-all duration-300 ${
                     isUnderHover
                       ? "h-4 bg-white shadow-[0_0_8px_#ffffff] z-10"
-                      : isMajor 
+                      : isMajor
                         ? isActive ? "h-2.5 bg-accent-blue" : "h-2 bg-white/20"
                         : isActive ? "h-1.5 bg-accent-lavender/50" : "h-1 bg-white/5"
-                  }`} 
+                  }`}
                 />
-                
+
                 {/* Major ticks label readings */}
                 {isMajor && (
-                  <span 
+                  <span
                     className={`absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[7px] tracking-normal transition-colors duration-300 ${
                       isActive ? "text-accent-blue/80 font-medium" : "text-[#ffffff15]"
                     }`}
@@ -408,7 +408,7 @@ export default function ProjectThreeImmersive({
           })}
 
           {/* Active Progress Filler Line */}
-          <motion.div 
+          <motion.div
             className="absolute left-0 top-0 h-full bg-gradient-to-r from-accent-lavender to-accent-blue rounded-full shadow-[0_0_12px_rgba(140,124,255,0.6)] cursor-pointer"
             animate={{ width: `${(activeSlideIndex / 9) * 100}%` }}
             transition={{ duration: isDraggingProgress ? 0 : 0.3, ease: "easeOut" }}
@@ -416,7 +416,7 @@ export default function ProjectThreeImmersive({
 
           {/* Virtual dragging cursor line tracker */}
           {isHovered && hoverPercentage !== null && (
-            <motion.div 
+            <motion.div
               className="absolute top-[-4px] bottom-[-4px] w-[1px] bg-accent-lavender/60 cursor-pointer pointer-events-none"
               animate={{ left: `${hoverPercentage * 100}%` }}
               transition={{ duration: 0.05 }}
@@ -434,7 +434,7 @@ export default function ProjectThreeImmersive({
       </div>
 
       {/* THE SOVEREIGN HORIZONTAL TRACK */}
-      <div 
+      <div
         ref={horizontalScrollRef}
         onScroll={handleScroll}
         className="w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory py-4 px-6 md:px-0 select-none z-10 scrollbar-none gap-8"
@@ -446,15 +446,15 @@ export default function ProjectThreeImmersive({
           className="w-[85vw] sm:w-[75vw] md:w-[65vw] max-w-[850px] shrink-0 snap-center flex flex-col justify-center relative select-none"
         >
           <div className="w-full aspect-video border border-white/10 p-1 bg-[#121212]/30 shadow-[0_30px_100px_rgba(0,0,0,0.85)] relative overflow-hidden flex items-center justify-center rounded-sm">
-            <img 
-              src={resolveImagePath("/src/assets/images/regenerated_image_1779780028065.jpg")} 
-              alt="Tokyo Silence Cover Background" 
+            <img
+              src={resolveImagePath("/src/assets/images 3/regenerated_image_1779694602997.webp")}
+              alt="Tokyo Silence Cover Background"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
             {/* Elegant fading mask */}
-            <div 
-              className="absolute inset-0" 
+            <div
+              className="absolute inset-0"
               style={{
                 background: "linear-gradient(to top, #0A0A0A 0%, rgba(10, 10, 10, 0.45) 15%, rgba(10, 10, 10, 0) 35%)"
               }}
@@ -535,11 +535,11 @@ export default function ProjectThreeImmersive({
               <span className="font-mono text-[8.5px] text-accent-blue tracking-[0.25em] uppercase block">
                 PROJECT INITIATION //
               </span>
-              
+
               <h3 className="text-sm sm:text-base font-light font-sans tracking-wide text-[#F5F5F2] uppercase leading-tight" id="project-03-title">
                 快手-2025我的年度回忆
               </h3>
-              
+
               <p className="text-[11px] text-text-slate/60 font-sans font-light leading-relaxed tracking-wide">
                 基于快手年度报告进行虚拟创作，为每一页构建关联和故事感的画面。画面通过可爱的风格化处理，以及不同的质感对比，使整个H5流程轻松活泼，让用户有代入感地体验。
               </p>

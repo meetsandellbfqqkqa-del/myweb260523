@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { 
-  ArrowLeft, 
-  ArrowRight, 
-  Image, 
-  Layers, 
-  Sliders, 
-  RotateCcw, 
-  ChevronDown, 
-  Sparkles, 
+import {
+  ArrowLeft,
+  ArrowRight,
+  Image,
+  Layers,
+  Sliders,
+  RotateCcw,
+  ChevronDown,
+  Sparkles,
   Settings,
   Tv,
   Eye,
@@ -49,7 +49,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Kinetic Void: Embodying Data Silence in a Saturated City",
     summary: "东京街头闪动的霓虹灯与即时推送不断掠夺着人类微弱的感官带宽。本项目致力于在其对立面开辟一个减速空间，将不可见的数字滞留感化为高密度的纯净空间美学。",
     summaryEng: "As neon streets and push-notifications devour finite human sensory bandwidth, we architect a sanctuary of zero density, recasting the silent void as a luxury of time.",
-    defaultImage: "https://i.postimg.cc/9F9Bptny/75069790.jpg",
+    defaultImage: "/src/assets/images 2/75069790.webp",
     metrics: "Inertia Scale: 0.95 (Viscous)",
     coordinates: "KNT.VD // PHI.01"
   },
@@ -62,7 +62,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Temporal Decelerator: Rebuilding Gaze Rhythm with Viscous Grids",
     summary: "摒弃‘瞬时加载’的过度取悦，让滑动阻尼和元素露出的物理响应降至微秒级匀变速，赋予每个单词、每根发丝线条优雅的生长动画。沉浸式抚平数字时代的碎片焦虑。",
     summaryEng: "Instead of split-second instant loading, we engineer pixel friction to unfold layouts slowly, welcoming users into a calming browser state with rhythmic, elegant easing.",
-    defaultImage: "https://i.postimg.cc/4Nc15bSv/75069791.jpg",
+    defaultImage: "/src/assets/images 2/75069791.webp",
     metrics: "Deceleration Rate: -3.8m/s²",
     coordinates: "KNT.VD // PHI.02"
   },
@@ -75,7 +75,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Negative Spatials: Searching for Hidden Halos in Tokyo's Nights",
     summary: "从无主小巷中搜集深夜穿透围墙的零星灯影。将多余的三维繁复面剥除，运用冷寂光线的投影溢流在深色背景中刻划，展现出建筑几何在暗面中的本真重量。",
     summaryEng: "Collect single-source lunar shadows leaking over raw concrete boundary gates. High-contrast ambient mapping filters out urban noise to isolate absolute architectural weights.",
-    defaultImage: "https://i.postimg.cc/9F9Bptnt/75069792.jpg",
+    defaultImage: "/src/assets/images 2/75069792.webp",
     metrics: "Shadow Spread: 180px",
     coordinates: "KNT.VD // PHI.03"
   },
@@ -88,7 +88,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Mindful Removals: Designing the Void by Relentless Stripping",
     summary: "我们将所有交互控件、点赞、多余的导航信息压缩。整个屏幕只留存高精度图像本身、精确的时空坐标与谦逊地隐于下方的极细控制标尺，重归专注本身。",
     summaryEng: "Banish notification flags and nested panels. By focusing only on raw imagery and standard alignment rules, the dynamic grid regains its functional silence.",
-    defaultImage: "https://i.postimg.cc/X75g8czk/75069793.jpg",
+    defaultImage: "/src/assets/images 2/75069793.webp",
     metrics: "Clutter Reduction: 98.2%",
     coordinates: "KNT.VD // PHI.04"
   },
@@ -103,7 +103,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Brutalist Geometry: High-Fidelity Capture of Yoyogi Staircase",
     summary: "把代代木老建筑粗粝、饱含历史厚度的砂质外壁转化为数码图腾。灰色阶度在单色视口下呈现如沙石微雕般的壮观。极细白哈林色网格让建筑骨架完美漂浮。",
     summaryEng: "Decode the textured historic grains of aging Yoyogi concrete walls into numerical gradients. Surrounded by single-pixel lines, the monument feels lighter, almost weightless.",
-    defaultImage: "https://i.postimg.cc/8kMsYQKr/75069802.jpg",
+    defaultImage: "/src/assets/images 2/75069802.webp",
     metrics: "Scan resolution: 12000px",
     coordinates: "ARC.GRD // EXH.01"
   },
@@ -116,7 +116,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Nakano Widescreen: Rhythmic Horizontal Alignment Ticks",
     summary: "受早期黑泽明电影景别影响，我们将长方形卡片宽高比固定为完美的、能唤醒本能宏大感的16:9比例。配合左右微小刻度对齐，营造在艺术暗房中的肃穆感。",
     summaryEng: "Inspired by classic widescreen cinematography, we anchor visual frames in a ratio of 16:9, surrounding margins with hairline coordinates to mirror dark projection rooms.",
-    defaultImage: "https://i.postimg.cc/ncm1kYPR/75069795.jpg",
+    defaultImage: "/src/assets/images 2/75069795.webp",
     metrics: "Ratio: 1.777 Cine",
     coordinates: "ARC.GRD // EXH.02"
   },
@@ -129,7 +129,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Chiaroscuro Discontinuity: Materializing the Negative Gap",
     summary: "不再依赖数码阴影生成器。我们手绘出符合东京极简画廊进深采光落点的物理退化晕，让画幅边缘的光晕和暗区宛如从真实的石膏框架中流泻出来一般。",
     summaryEng: "Avoid digital overlay artifacts. We mapped hand-drawn, falloff-accurate luminosity glows matching classic gypsum frames to deliver realistic physical weight.",
-    defaultImage: "https://i.postimg.cc/gkhKDqT1/75069797.jpg",
+    defaultImage: "/src/assets/images 2/75069797.webp",
     metrics: "Gamma Falloff: 1.15",
     coordinates: "ARC.GRD // EXH.03"
   },
@@ -142,7 +142,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Asymmetrical Tension: Elegant Negative Space Breathings",
     summary: "打破死板的对称居中。我们将摄影重心和极简文字一左一右，排版空隙被置入黄金比例距离，让用户的视线能够自由地游移，建立毫无逼迫感的浏览情绪状态。",
     summaryEng: "Shatter conventional symmetrical card templates. Displace geometric masses to create dynamic negative paths, giving visual layouts a serene, unforced reading curve.",
-    defaultImage: "https://i.postimg.cc/pLtJ1hwq/75069801.jpg",
+    defaultImage: "/src/assets/images 2/75069801.webp",
     metrics: "Grid Ratio: Golden Angle",
     coordinates: "ARC.GRD // EXH.04"
   },
@@ -157,7 +157,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Step 01: High-Viscosity Friction Momentum Engine",
     summary: "为了使横向滚动呈现出如在深色原油中缓缓滑过的质感，我们用弹性阻尼牛顿方程在前端重新编写了位移。让即使最激烈的拉动也变成缓慢释放的温柔仪式。",
     summaryEng: "To slow rapid gestures, we coded momentum-friction solvers in WebGL. Accelerations glide and decelerate gently, inviting users into a slow, meditative spatial flow.",
-    defaultImage: "https://i.postimg.cc/HkC9PcqP/75069804.jpg",
+    defaultImage: "/src/assets/images 2/75069804.webp",
     metrics: "Viscosity Index: 0.88",
     coordinates: "KIN.ENG // STP.01"
   },
@@ -170,7 +170,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Step 02: Strategic Cognitive Sabbaticals & Intermissions",
     summary: "我们坚持反极速主义。在两个章节滑动过渡之时，人为插入高达500ms的“留白黑场”。此时文字和图像全部安静离场，让眼球和精神在深邃的绝对黑夜中沉静。",
     summaryEng: "In defiance of instant load, we render a pure black gap during section swaps. This 500ms delay resets the optical nerve and clears residual reading fatigue.",
-    defaultImage: "https://i.postimg.cc/t4HNmZKv/75069803.jpg",
+    defaultImage: "/src/assets/images 2/75069803.webp",
     metrics: "Sabbatical: 500ms",
     coordinates: "KIN.ENG // STP.02"
   },
@@ -183,7 +183,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Step 03: Simulated Biometric Breathing & Lens Easing",
     summary: "引入自适应图像聚焦缓动。卡片在滑入屏幕中端时自动解除边缘的高斯模糊，宛如使用者的眼睛在深夜中凝神聚焦；而离开时又重新没入朦胧夜霭，极为流畅。",
     summaryEng: "Implement dynamic focal falloffs. Cards clear up as they align center, simulating human eye adaptation, then gently return to industrial fog as they glide away.",
-    defaultImage: "https://i.postimg.cc/QdrJn92y/75069805.jpg",
+    defaultImage: "/src/assets/images 2/75069805.webp",
     metrics: "Focal Scale: 0.98",
     coordinates: "KIN.ENG // STP.03"
   },
@@ -196,7 +196,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Step 04: Ambient Light Spill & Low-Lumen Reflection",
     summary: "设计了一个自适应环境光投影算法。根据当前处于核心焦点的摄影画面色调，在黑色背景深层秘密地投射出折射溢色，宛如真实的投影在无光展墙上投下的漫反射。",
     summaryEng: "Project secondary glow profiles echoing the core visual colors onto background layers, simulating real gallery projectors reflecting in a darkened space.",
-    defaultImage: "https://i.postimg.cc/x1S3FJwZ/75069806.jpg",
+    defaultImage: "/src/assets/images 2/75069806.webp",
     metrics: "Luminance Spill: 12%",
     coordinates: "KIN.ENG // STP.04"
   },
@@ -209,7 +209,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Step 05: Fluid Micro-particle Drift and Drag Dynamics",
     summary: "在全景控制中增加不易察觉的慢速粒子背景。利用经典流体力学，滚动速度越快则粒子产生的微弱推力阻力越大。在极其微妙的层面上，用指尖便能触摸到流逝的时间重量。",
     summaryEng: "Utilize hydrodynamics to drift delicate layout vectors under scroll thrusts. Moving faster increases drag coefficients, revealing the true gravity of motion.",
-    defaultImage: "https://i.postimg.cc/dtC9Bmxz/75069798.jpg",
+    defaultImage: "/src/assets/images 2/75069798.webp",
     metrics: "Particulate Drag: +18%",
     coordinates: "KIN.ENG // STP.05"
   },
@@ -222,7 +222,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Step 06: Magnetic Slide Lock & Precision Scale Easing",
     summary: "让滚动轨道仿佛内部拥有磁力凹槽。一旦划动即将止息，程序将用精确的极值余弦算法将画面精确锁定在视口中央，提供如同昂贵胶片盘微调旋钮在手中锁定的爽朗手感。",
     summaryEng: "Create invisible magnetic notches on the axis. As deceleration wraps, the system gently locks to center, offering the tactical feel of premium mechanical cameras.",
-    defaultImage: "https://i.postimg.cc/3JGZBCcs/75069799.jpg",
+    defaultImage: "/src/assets/images 2/75069799.webp",
     metrics: "Alignment tolerance: 0.1px",
     coordinates: "KIN.ENG // STP.06"
   },
@@ -237,7 +237,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Minimal Skeletons: Elevating the Haunting Beauty of Micro-Type",
     summary: "摒弃粗厚色块。卡片由最细的单像素白色边界和暗夜发光线条分隔；字体全部降至10px以下，运用超宽字符间距让大片留白在没有负累的情况下展示其高贵的呼吸度。",
     summaryEng: "Avoid bulky cards. Structural borders are formed of single-pixel lines; fonts are scaled to micro size with wider tracking to allow negative areas to breathe.",
-    defaultImage: "https://i.postimg.cc/Sxpft2B5/75069807.jpg",
+    defaultImage: "/src/assets/images 2/75069807.webp",
     metrics: "Border Weight: 0.5px hairline",
     coordinates: "EXP.TYP // STP.01"
   },
@@ -250,7 +250,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Dynamic Serif Skeletal Flexing & Font Viscosities",
     summary: "我们将传统字体骨骼加入弹簧质点算法。字体的字宽、字重实时根据当下的阅读卷动速度、以及东京气象局的环境风速数值发生呼吸般的微缩舒张，使排版如植物般灵性生长。",
     summaryEng: "Traditional serif font characters react to scrolling kinetic streams or local weather stats. Skeletons widen and compress elegantly as if moved by gentle midnight air.",
-    defaultImage: "https://i.postimg.cc/qMKGLXFf/75069800.jpg",
+    defaultImage: "/src/assets/images 2/75069800.webp",
     metrics: "Modulation Coefficient: 1.442",
     coordinates: "EXP.TYP // STP.02"
   },
@@ -263,7 +263,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Swiss Blueprint Decals: Subtle Engineering Technical Markers",
     summary: "在画幅周围精确标注着坐标、色阶范围、以及系统开机时间的数字。去除了没有章法的感性线条，用冷冰冰、克制至极的技术语言去传达一种当代美学的数字策展仪式感。",
     summaryEng: "Surround visual layouts with high-precision engineering data, telemetry ranges, and strict scales to structure digital artifacts with Swiss modern detail.",
-    defaultImage: "https://i.postimg.cc/qM0tQTYZ/75069809.jpg",
+    defaultImage: "/src/assets/images 2/75069809.webp",
     metrics: "Decal alignment: 100% vector",
     coordinates: "EXP.TYP // STP.03"
   },
@@ -276,7 +276,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Diffuse Drop-Shadow: Overwhelming Depth in a Dark Abyss",
     summary: "在横向卡片背面投射出高达140像素模糊值、软边缘退化极其均匀的大跨度黑影。将原本平面的屏幕硬生生拉出三层物理空间，使影像在深沉中具有雕塑般的深度感。",
     summaryEng: "Project a massive, gradual 140px blurring shadow map behind cards, lifting horizontal rectangles physically off the monitor plane to evoke classic sculpture.",
-    defaultImage: "https://i.postimg.cc/SxpftY0q/75069811.jpg",
+    defaultImage: "/src/assets/images 2/75069811.webp",
     metrics: "Shadow Radius: 140px spread",
     coordinates: "EXP.TYP // STP.04"
   },
@@ -289,7 +289,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "High Contrast Void: Rekindling Vision in Complete Darkness",
     summary: "大面积采用超黑低流明背板，与极其明亮、细节丰沛的高灰摄影画面。通过把视线强制集中在明亮方槽中，模拟了古典教堂在穹顶引入一道绝对光流震撼心灵的建筑巧思。",
     summaryEng: "Contrast deep low-lumen backdrop canvases with brilliant, graphic photo frames. This geometry mimics how dark temples trap down-pouring natural daylight.",
-    defaultImage: "https://i.postimg.cc/HkC9PcqF/75069808.jpg",
+    defaultImage: "/src/assets/images 2/75069808.webp",
     metrics: "Contrast Ratio: Extrema",
     coordinates: "EXP.TYP // STP.05"
   },
@@ -302,7 +302,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Phonetic Mapping: Decoding Ancient Textures to Dark Low Synth",
     summary: "我们将摄影集中大理石的物理法线贴图和凹痕，通过实时矩阵转换，拼贴成了具有极低沉音高、能微微引起胸腔共鸣的管风琴式电子声，触碰即是听觉上的‘触摸泥质’。",
     summaryEng: "Translate normal-map texture values into long-wave sub-bass resonances, allowing visitors to feel the physical stones through atmospheric low-frequency synth.",
-    defaultImage: "https://i.postimg.cc/qvdxZ6ff/75069810.jpg",
+    defaultImage: "/src/assets/images 2/75069810.webp",
     metrics: "Acoustics loop: 24.2 Hz",
     coordinates: "EXP.TYP // STP.06"
   },
@@ -315,7 +315,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Organic Bio-Trigger: Bypassing Buttons with Kinetic Breathing",
     summary: "在最后一组页面里，我们测试了完全抛弃指针的无感体验。图像随视线停留的深度而优雅伸长或翻滚，人机在这一刻达到无间融通的非介质化极致艺术状态。",
     summaryEng: "Banish cursor click demands. Layout layers morph organically matching user scroll speeds, arriving at a fluid state of ambient computing.",
-    defaultImage: "https://i.postimg.cc/jSr4knVb/75069812.jpg",
+    defaultImage: "/src/assets/images 2/75069812.webp",
     metrics: "Trigger delay: 0.00ms",
     coordinates: "EXP.TYP // STP.07"
   },
@@ -330,7 +330,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Chrono-Aesthetics: Elegiac Hourglass Digital Clock for Timepieces",
     summary: "在东京知名媒体工作室实习期间，为新奢腕表品牌开发了三维时间粒子轨迹系统。时分秒不再是尖锐的指针，而是如细沙般漫舞的分形弧带。",
     summaryEng: "During an internship at a Tokyo studio, we engineered a 3D hourglass particle canvas for luxury timepiece brands. Hours and minutes dissolve like loose silicon sand.",
-    defaultImage: "https://i.postimg.cc/nhtGw98H/75069815.jpg",
+    defaultImage: "/src/assets/images 2/75069815.webp",
     metrics: "Platform: Three.js / WebGL",
     coordinates: "MET.SIL // EXH.01"
   },
@@ -343,7 +343,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Hyper-Haptics: High-Aesthetic Tactile EV In-Car Dashboard",
     summary: "为豪华跑车智能座舱方案升级。摒弃了刺眼的日光蓝偏好，采用超低流明感的高对比夜宿线条，辅以特定手势深度回馈，消除了行驶操控视觉失焦。",
     summaryEng: "Upgraded user configurations for luxury EV sports cars. Low-lumen interfaces with high aesthetic contrast ensure safety while prioritizing minimalist touch sensations.",
-    defaultImage: "https://i.postimg.cc/qvdxZ6f4/75069814.jpg",
+    defaultImage: "/src/assets/images 2/75069814.webp",
     metrics: "Lumen count: <15 nits",
     coordinates: "MET.SIL // EXH.02"
   },
@@ -356,7 +356,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Monolithic Archives: Microscopic 12K Stone Digital Curation",
     summary: "为高端画廊建立石材和粗野主义水泥的高解纹理数据库。12K级微观法向贴图，在屏幕中生动反映了不同季节光照在质朴表面的温存与投影移动。",
     summaryEng: "Architected a materials library tracking the raw structural values of natural marbles and granites under evolving solar paths. It preserves the weight of mineral elements.",
-    defaultImage: "https://i.postimg.cc/t4HNmn0C/75069816.jpg",
+    defaultImage: "/src/assets/images 2/75069816.webp",
     metrics: "Texture Resolution: 12000px",
     coordinates: "MET.SIL // EXH.03"
   },
@@ -369,7 +369,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Voice Dynamics: Voice Decibel Wave Adaptive Typography System",
     summary: "根据麦克风环境分贝值，字体字宽、字重实时以弹性力学运动方程式发生膨胀和缩微，从而使字符能够像自然界声波一样发出肉眼可见的物理律动。",
     summaryEng: "Voice wave decibels interact directly with standard type skeletons. Font families expand and retract via spring mechanics to visually embody spoken patterns.",
-    defaultImage: "https://i.postimg.cc/XY0kDBMv/75069817.jpg",
+    defaultImage: "/src/assets/images 2/75069817.webp",
     metrics: "Frequency Range: 20-20k Hz",
     coordinates: "MET.SIL // EXH.04"
   },
@@ -382,7 +382,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Anti-Clutter: Golden Ratio Browser Filtering Platform",
     summary: "设计的一款实验性脚本：自动将网站中闪烁、刺目的横幅广告、过度鲜艳的颜色，自动解析剥离，并全部置换为具有完美比例的极简无垠留白空域。",
     summaryEng: "A Chrome-extension prototype designed to parse noisy web grids, actively filtering busy ads or banner blocks and restoring quiet spaces based on golden ratio grids.",
-    defaultImage: "https://i.postimg.cc/P5kQFvGx/75069818.jpg",
+    defaultImage: "/src/assets/images 2/75069818.webp",
     metrics: "Attention recovery rate: 92.4%",
     coordinates: "MET.SIL // EXH.05"
   }
@@ -444,12 +444,12 @@ export default function ProjectTwoImmersive({
   const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!progressBarRef.current) return;
     const { percentage, index } = getProgressSpecs(e.clientX);
-    
+
     setIsDraggingProgress(true);
     setIsHovered(true);
     setHoverPercentage(percentage);
     setHoverIndex(index);
-    
+
     progressBarRef.current.setPointerCapture(e.pointerId);
     scrollToSlide(index, "smooth");
   };
@@ -457,10 +457,10 @@ export default function ProjectTwoImmersive({
   const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!progressBarRef.current) return;
     const { percentage, index } = getProgressSpecs(e.clientX);
-    
+
     setHoverPercentage(percentage);
     setHoverIndex(index);
-    
+
     if (isDraggingProgress) {
       scrollToSlide(index, "auto");
     }
@@ -485,7 +485,7 @@ export default function ProjectTwoImmersive({
     const scrollLeft = container.scrollLeft;
     const containerWidth = container.offsetWidth;
     const slides = container.children;
-    
+
     let bestIndex = activeSlideIndex;
     let minDistance = Infinity;
 
@@ -558,7 +558,7 @@ export default function ProjectTwoImmersive({
       </div>
 
       {/* SENSORY PROGRESS FOOTER BAR - TACTILE GAUGE CALIBRATION SCALE */}
-      <div 
+      <div
          ref={progressBarRef}
          onPointerDown={handlePointerDown}
          onPointerMove={handlePointerMove}
@@ -581,7 +581,7 @@ export default function ProjectTwoImmersive({
               exit={{ opacity: 0, y: 12, scale: 0.95 }}
               transition={{ type: "spring", stiffness: 450, damping: 25 }}
               className="absolute bottom-12 bg-black/95 border border-white/10 px-3 py-2 rounded-xs shadow-[0_30px_70px_rgba(0,0,0,0.98)] backdrop-blur-xl pointer-events-none select-none w-max max-w-[280px] xs:max-w-[340px] sm:max-w-[500px] flex flex-col space-y-1 z-50 font-mono text-left"
-              style={{ 
+              style={{
                 left: `${Math.max(10, Math.min(90, hoverPercentage * 100))}%`,
                 transform: "translateX(-50%)"
               }}
@@ -598,7 +598,7 @@ export default function ProjectTwoImmersive({
 
         {/* Absolute base timeline rules & visual tracks */}
         <div className="w-[calc(100%-32px)] h-[3px] bg-white/5 relative flex items-center rounded-full transition-all duration-300">
-          
+
           {/* Static subtle tick marks representing 26 slide increments */}
           {Array.from({ length: 27 }).map((_, i) => {
             const isMajor = i % 3 === 0 || i === 26;
@@ -608,24 +608,24 @@ export default function ProjectTwoImmersive({
               <div
                 key={i}
                 className="absolute transition-all duration-300 pointer-events-none"
-                style={{ 
+                style={{
                   left: `${(i / 26) * 100}%`,
-                  transform: "translateX(-50%)" 
+                  transform: "translateX(-50%)"
                 }}
               >
-                <div 
+                <div
                   className={`w-[1px] rounded-full transition-all duration-300 ${
                     isUnderHover
                       ? "h-4 bg-white shadow-[0_0_8px_#ffffff] z-10"
-                      : isMajor 
+                      : isMajor
                         ? isActive ? "h-2.5 bg-accent-blue" : "h-2 bg-white/20"
                         : isActive ? "h-1.5 bg-accent-lavender/50" : "h-1 bg-white/5"
-                  }`} 
+                  }`}
                 />
-                
+
                 {/* Major ticks label readings */}
                 {isMajor && (
-                  <span 
+                  <span
                     className={`absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[7px] tracking-normal transition-colors duration-300 ${
                       isActive ? "text-accent-blue/80 font-medium" : "text-[#ffffff15]"
                     }`}
@@ -638,7 +638,7 @@ export default function ProjectTwoImmersive({
           })}
 
           {/* Active Progress Filler Line */}
-          <motion.div 
+          <motion.div
             className="absolute left-0 top-0 h-full bg-gradient-to-r from-accent-lavender to-accent-blue rounded-full shadow-[0_0_12px_rgba(140,124,255,0.6)] cursor-pointer"
             animate={{ width: `${(activeSlideIndex / 26) * 100}%` }}
             transition={{ duration: isDraggingProgress ? 0 : 0.3, ease: "easeOut" }}
@@ -646,7 +646,7 @@ export default function ProjectTwoImmersive({
 
           {/* Virtual dragging cursor line tracker */}
           {isHovered && hoverPercentage !== null && (
-            <motion.div 
+            <motion.div
               className="absolute top-[-4px] bottom-[-4px] w-[1px] bg-accent-lavender/60 cursor-pointer pointer-events-none"
               animate={{ left: `${hoverPercentage * 100}%` }}
               transition={{ duration: 0.05 }}
@@ -664,7 +664,7 @@ export default function ProjectTwoImmersive({
       </div>
 
       {/* THE SOVEREIGN HORIZONTAL TRACK */}
-      <div 
+      <div
         ref={horizontalScrollRef}
         onScroll={handleScroll}
         className="w-full h-full flex items-center overflow-x-auto snap-x snap-mandatory py-4 px-6 md:px-0 select-none z-10 scrollbar-none gap-8"
@@ -676,15 +676,15 @@ export default function ProjectTwoImmersive({
           className="w-[85vw] sm:w-[75vw] md:w-[65vw] max-w-[850px] shrink-0 snap-center flex flex-col justify-center relative select-none"
         >
           <div className="w-full aspect-video border border-white/10 p-1 bg-[#121212]/30 shadow-[0_30px_100px_rgba(0,0,0,0.85)] relative overflow-hidden flex items-center justify-center rounded-sm">
-            <img 
-              src={resolveImagePath("/src/assets/images/regenerated_image_1779422815932.jpg")} 
-              alt="Kinetic Void Cover Background" 
+            <img
+              src={resolveImagePath("/src/assets/images 2/75069789.webp")}
+              alt="Kinetic Void Cover Background"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
             {/* Elegant fading mask */}
-            <div 
-              className="absolute inset-0" 
+            <div
+              className="absolute inset-0"
               style={{
                 background: "linear-gradient(to top, #0A0A0A 0%, rgba(10, 10, 10, 0.45) 15%, rgba(10, 10, 10, 0) 35%)"
               }}
@@ -765,11 +765,11 @@ export default function ProjectTwoImmersive({
               <span className="font-mono text-[8.5px] text-accent-blue tracking-[0.25em] uppercase block">
                 PROJECT INITIATION //
               </span>
-              
+
               <h3 className="text-sm sm:text-base font-light font-sans tracking-wide text-[#F5F5F2] uppercase leading-tight" id="project-02-title">
                 小红书-市集穿搭体验提升
               </h3>
-              
+
               <p className="text-[11px] text-text-slate/60 font-sans font-light leading-relaxed tracking-wide">
                 通过设计优化小红书市集穿搭模块相关界面，优化穿搭模块消费体验，提高市集购买力，增强用户消费粘性，推动小红书市集电商发展。
               </p>

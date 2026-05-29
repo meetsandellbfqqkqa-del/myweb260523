@@ -1,6 +1,11 @@
 /// <reference types="vite/client" />
 
-const images = import.meta.glob('/src/assets/images/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true, import: 'default' });
+const images = import.meta.glob([
+  '/src/assets/images/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}',
+  '/src/assets/images1/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}',
+  '/src/assets/images 2/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}',
+  '/src/assets/images 3/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}',
+], { eager: true, import: 'default' });
 
 export function resolveImagePath(path: string): string {
   if (!path) return '';
