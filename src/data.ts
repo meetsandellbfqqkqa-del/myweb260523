@@ -1,3 +1,4 @@
+import portraitImage from "./assets/images1/证件照.webp";
 import { Project, Profile } from "./types";
 
 export const profileData: Profile = {
@@ -5,7 +6,7 @@ export const profileData: Profile = {
   lastName: "旗",
   tagline: "UX设计师 & AI技术爱好",
   story: "HIII，欢迎来到我的网站，我是洪旗。本科在中央美院，研究生目前在中国美院在读，性格开朗，喜欢拥抱新技术。目前经历主要包含在滴滴的产品实习经历，小红书和快手的项目经历，掌握FIGMA， AIGC视觉生成，VIBE CODING等技能",
-  imageUrl: "/src/assets/images1/证件照.webp",
+  imageUrl: portraitImage,
   email: "2860816256@qq.com",
   phone: "+86 15228718329",
   wechat: "15228718329",
