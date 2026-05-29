@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowDown } from "lucide-react";
 import { profileData } from "../data";
+import { resolveImagePath } from "../utils/imageResolver";
 
 interface HeroProps {
   onScrollToWorks: () => void;
@@ -104,7 +105,7 @@ export default function Hero({ onScrollToWorks }: HeroProps) {
             {/* Artistic Cropped Image Container */}
             <div className="relative overflow-hidden rounded-xs border border-white/5 bg-[#121212] aspect-[3/4] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)]">
               <motion.img
-                src={profileData.imageUrl}
+                src={resolveImagePath(profileData.imageUrl)}
                 alt="Portrait of HONG"
                 referrerPolicy="no-referrer"
                 animate={{ y: [0, -4, 0] }}
