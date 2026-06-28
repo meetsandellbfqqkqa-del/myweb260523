@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "tsx server.ts",
-    "test": "node --import tsx --test src/utils/portfolioAgent.test.ts src/utils/portfolioAgentClient.test.ts src/server/portfolioAgentService.test.ts",
+    "test": "node --import tsx --test src/utils/portfolioAgent.test.ts src/utils/portfolioAgentClient.test.ts src/server/portfolioAgentService.test.ts src/server/portfolioAgentApi.test.ts",
     "ollama:pull": "ollama pull qwen3:8b",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit"

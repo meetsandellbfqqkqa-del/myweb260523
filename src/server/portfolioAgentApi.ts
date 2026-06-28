@@ -1,6 +1,9 @@
 import { Buffer } from "node:buffer";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { answerPortfolioAgentQuestion } from "./portfolioAgentService";
+import {
+  answerPortfolioAgentQuestion,
+  type PortfolioAgentResult
+} from "./portfolioAgentService";
 
 interface PortfolioAgentRequestBody {
   question?: unknown;
@@ -9,6 +12,10 @@ interface PortfolioAgentRequestBody {
 interface ApiResponse {
   status: number;
   body: object;
+}
+
+interface ApiResponseOptions {
+  answerQuestion?: (question: string) => Promise<PortfolioAgentResult>;
 }
 
 export async function readJsonRequestBody(req: IncomingMessage): Promise<PortfolioAgentRequestBody> {
@@ -25,7 +32,8 @@ export async function readJsonRequestBody(req: IncomingMessage): Promise<Portfol
 }
 
 export async function createPortfolioAgentApiResponse(
-  body: PortfolioAgentRequestBody
+  body: PortfolioAgentRequestBody,
+  options: ApiResponseOptions = {}
 ): Promise<ApiResponse> {
   const question = typeof body.question === "string" ? body.question : "";
 
@@ -38,7 +46,7 @@ export async function createPortfolioAgentApiResponse(
     };
   }
 
-  const result = await answerPortfolioAgentQuestion(question);
+  const result = await (options.answerQuestion ?? answerPortfolioAgentQuestion)(question);
 
   return {
     status: 200,
@@ -54,20 +62,25 @@ export function writeJsonResponse(res: ServerResponse, status: number, body: obj
 
 export async function handlePortfolioAgentNodeRequest(
   req: IncomingMessage,
-  res: ServerResponse
+  res: ServerResponse,
+  options: ApiResponseOptions = {}
 ) {
   if (req.method !== "POST") {
+    res.setHeader("Allow", "POST");
     writeJsonResponse(res, 405, { error: "Method not allowed." });
     return;
   }
 
   try {
     const body = await readJsonRequestBody(req);
-    const response = await createPortfolioAgentApiResponse(body);
+    const response = await createPortfolioAgentApiResponse(body, options);
     writeJsonResponse(res, response.status, response.body);
   } catch (error) {
-    writeJsonResponse(res, 500, {
-      error: error instanceof Error ? error.message : "Unexpected server error."
+    const isInvalidJson = error instanceof SyntaxError;
+    writeJsonResponse(res, isInvalidJson ? 400 : 500, {
+      error: isInvalidJson
+        ? "Invalid JSON body."
+        : error instanceof Error ? error.message : "Unexpected server error."
     });
   }
 }

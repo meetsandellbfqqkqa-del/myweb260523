@@ -55,7 +55,7 @@ export default function PortfolioAgent({ placement = "floating" }: PortfolioAgen
     setMessages((current) => [
       ...current,
       { id: thinkingMessageId - 1, role: "visitor", text: question },
-      { id: thinkingMessageId, role: "agent", text: "Qwen3:8b 正在本地阅读作品集档案..." }
+      { id: thinkingMessageId, role: "agent", text: "Archive Intelligence 正在阅读作品集档案..." }
     ]);
     setInput("");
     setIsOpen(true);
@@ -102,10 +102,12 @@ export default function PortfolioAgent({ placement = "floating" }: PortfolioAgen
                 </div>
                 <p className="mt-1 text-[9px] tracking-[0.18em] text-text-slate/45 uppercase">
                   {isThinking
-                    ? "Qwen3:8b Thinking..."
-                    : lastSource === "ollama"
-                      ? "Qwen3:8b Local"
-                      : "Local Archive Fallback"}
+                    ? "Archive Intelligence Thinking..."
+                    : lastSource === "gemini"
+                      ? "Gemini Live"
+                      : lastSource === "ollama"
+                        ? "Qwen3:8b Local"
+                        : "Local Archive Fallback"}
                 </p>
               </div>
               <button
