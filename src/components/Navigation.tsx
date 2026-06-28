@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
-import { profileData, projectsData } from "../data";
+import { projectsData } from "../data";
+import PortfolioAgent from "./PortfolioAgent";
 
 interface NavigationProps {
   activeSection: string; // "about" | "project-01" | "project-02" | "project-03" | "contact"
@@ -97,15 +98,7 @@ export default function Navigation({
         })}
       </div>
 
-      {/* Bottom Coordinates */}
-      <div className="text-[10px] text-text-slate/40 leading-relaxed font-mono">
-        <div className="flex items-center space-x-1 text-accent-lavender/70">
-          <span className="inline-block w-1.5 h-1.5 bg-accent-lavender rounded-full animate-pulse" />
-          <span>DIRECTORY OPEN</span>
-        </div>
-        <p className="mt-1">SYS / LAT 35.6762° N</p>
-        <p>REI SATO © 2026</p>
-      </div>
+      <PortfolioAgent placement="sidebar" />
     </nav>
   );
 }

@@ -24,7 +24,7 @@ interface ProjectTwoImmersiveProps {
 }
 
 interface SlideContent {
-  id: number; // 1 to 26
+  id: number;
   sectionIndex: number; // 1 to 5
   sectionName: string;
   sectionSub: string;
@@ -37,7 +37,7 @@ interface SlideContent {
   coordinates?: string;
 }
 
-// 26 meticulously written slides covering the Tokyo Kinetic Void series:
+// Project 2 slide sequence.
 const SLIDES_DATA: SlideContent[] = [
   // SECTION 1: 概念与设计哲学 (Page 1-4)
   {
@@ -209,7 +209,7 @@ const SLIDES_DATA: SlideContent[] = [
     titleEng: "Step 05: Fluid Micro-particle Drift and Drag Dynamics",
     summary: "在全景控制中增加不易察觉的慢速粒子背景。利用经典流体力学，滚动速度越快则粒子产生的微弱推力阻力越大。在极其微妙的层面上，用指尖便能触摸到流逝的时间重量。",
     summaryEng: "Utilize hydrodynamics to drift delicate layout vectors under scroll thrusts. Moving faster increases drag coefficients, revealing the true gravity of motion.",
-    defaultImage: "/src/assets/images 2/75069798.webp",
+    defaultImage: "/src/assets/images 2/1.webp",
     metrics: "Particulate Drag: +18%",
     coordinates: "KIN.ENG // STP.05"
   },
@@ -385,8 +385,23 @@ const SLIDES_DATA: SlideContent[] = [
     defaultImage: "/src/assets/images 2/75069818.webp",
     metrics: "Attention recovery rate: 92.4%",
     coordinates: "MET.SIL // EXH.05"
+  },
+  {
+    id: 27,
+    sectionIndex: 5,
+    sectionName: "独立研究与实践",
+    sectionSub: "SECTION 05 // METROPOLIS SILENCE EXHIBITS",
+    title: "项目补充页",
+    titleEng: "Supplementary Frame: Additional Project 2 Evidence",
+    summary: "补充展示项目二的新增页面，用于呈现后续优化内容与关键视觉结果。",
+    summaryEng: "A supplementary frame for Project 2, presenting the added visual evidence and iteration outcome.",
+    defaultImage: "/src/assets/images 2/2.webp",
+    metrics: "Supplementary frame",
+    coordinates: "MET.SIL // EXH.06"
   }
 ];
+
+const SLIDE_COUNT = SLIDES_DATA.length;
 
 export default function ProjectTwoImmersive({
   onBack,
@@ -394,7 +409,7 @@ export default function ProjectTwoImmersive({
 }: ProjectTwoImmersiveProps) {
   const imageUrls = SLIDES_DATA.map(s => s.defaultImage);
 
-  // Track the current active slide on screen (0 is Cover, 1-26 are content slides)
+  // Track the current active slide on screen (0 is Cover, 1-N are content slides)
   const [activeSlideIndex, setActiveSlideIndex] = useState<number>(0);
 
   // Safe reference monitoring for scrolling interaction
@@ -407,7 +422,7 @@ export default function ProjectTwoImmersive({
   const [hoverPercentage, setHoverPercentage] = useState<number>(0);
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
-  // Helper to extract granular interaction values from pointer events (0 to 26 slides)
+  // Helper to extract granular interaction values from pointer events (0 to N slides)
   const getProgressSpecs = (clientX: number) => {
     if (!progressBarRef.current) return { percentage: 0, index: 0 };
     const rect = progressBarRef.current.getBoundingClientRect();
@@ -416,7 +431,7 @@ export default function ProjectTwoImmersive({
     const relativeX = clientX - left;
     let percentage = relativeX / width;
     percentage = Math.max(0, Math.min(1, percentage));
-    const targetIndex = Math.round(percentage * 26);
+    const targetIndex = Math.round(percentage * SLIDE_COUNT);
     return { percentage, index: targetIndex };
   };
 
@@ -501,7 +516,7 @@ export default function ProjectTwoImmersive({
       }
     }
 
-    if (bestIndex !== activeSlideIndex && bestIndex >= 0 && bestIndex <= 26) {
+    if (bestIndex !== activeSlideIndex && bestIndex >= 0 && bestIndex <= SLIDE_COUNT) {
       setActiveSlideIndex(bestIndex);
     }
   };
@@ -513,7 +528,7 @@ export default function ProjectTwoImmersive({
   };
 
   const handleNextSlide = () => {
-    if (activeSlideIndex < 26) {
+    if (activeSlideIndex < SLIDE_COUNT) {
       scrollToSlide(activeSlideIndex + 1);
     }
   };
@@ -549,7 +564,7 @@ export default function ProjectTwoImmersive({
         <div className="flex items-center space-x-3 sm:space-x-4">
           <span className="block w-2 h-2 rounded-full bg-accent-lavender shadow-[0_0_8px_#8C7CFF] animate-pulse" />
           <div className="font-mono text-[9px] text-accent-lavender tracking-[0.25em] uppercase">
-            ACTIVE EXHIBITING // {activeSlideIndex === 0 ? "封面导引 : INTRO" : `第 ${activeSlideIndex} / 26 幅`}
+            ACTIVE EXHIBITING // {activeSlideIndex === 0 ? "封面导引 : INTRO" : `第 ${activeSlideIndex} / ${SLIDE_COUNT} 幅`}
           </div>
           <div className="font-mono text-[9px] text-[#ffffff20] tracking-widest hidden xl:block border-l border-white/10 pl-4">
             CORE: HONG QI Portfolio.2
@@ -599,9 +614,9 @@ export default function ProjectTwoImmersive({
         {/* Absolute base timeline rules & visual tracks */}
         <div className="w-[calc(100%-32px)] h-[3px] bg-white/5 relative flex items-center rounded-full transition-all duration-300">
 
-          {/* Static subtle tick marks representing 26 slide increments */}
-          {Array.from({ length: 27 }).map((_, i) => {
-            const isMajor = i % 3 === 0 || i === 26;
+          {/* Static subtle tick marks representing slide increments */}
+          {Array.from({ length: SLIDE_COUNT + 1 }).map((_, i) => {
+            const isMajor = i % 3 === 0 || i === SLIDE_COUNT;
             const isActive = i <= activeSlideIndex;
             const isUnderHover = hoverIndex !== null && i === hoverIndex && isHovered;
             return (
@@ -609,7 +624,7 @@ export default function ProjectTwoImmersive({
                 key={i}
                 className="absolute transition-all duration-300 pointer-events-none"
                 style={{
-                  left: `${(i / 26) * 100}%`,
+                  left: `${(i / SLIDE_COUNT) * 100}%`,
                   transform: "translateX(-50%)"
                 }}
               >
@@ -640,7 +655,7 @@ export default function ProjectTwoImmersive({
           {/* Active Progress Filler Line */}
           <motion.div
             className="absolute left-0 top-0 h-full bg-gradient-to-r from-accent-lavender to-accent-blue rounded-full shadow-[0_0_12px_rgba(140,124,255,0.6)] cursor-pointer"
-            animate={{ width: `${(activeSlideIndex / 26) * 100}%` }}
+            animate={{ width: `${(activeSlideIndex / SLIDE_COUNT) * 100}%` }}
             transition={{ duration: isDraggingProgress ? 0 : 0.3, ease: "easeOut" }}
           />
 
@@ -656,7 +671,7 @@ export default function ProjectTwoImmersive({
           {/* Glowing Tactile handle thumb on the progress endpoint */}
           <motion.div
             className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)] border border-neutral-950 cursor-pointer pointer-events-none z-20"
-            animate={{ left: `${(activeSlideIndex / 26) * 100}%` }}
+            animate={{ left: `${(activeSlideIndex / SLIDE_COUNT) * 100}%` }}
             transition={{ duration: isDraggingProgress ? 0 : 0.3, ease: "easeOut" }}
             style={{ transform: "translate(-50%, -50%)" }}
           />
@@ -696,7 +711,7 @@ export default function ProjectTwoImmersive({
           </div>
         </div>
 
-        {/* SLIDES 01 TO 26: 16:9 IMAGE VISUAL CARDS */}
+        {/* SLIDES 01 TO N: 16:9 IMAGE VISUAL CARDS */}
         {SLIDES_DATA.map((slide, index) => {
           const slideNum = slide.id;
           const currentImage = imageUrls[index];
@@ -792,9 +807,9 @@ export default function ProjectTwoImmersive({
         <span className="text-[#ffffff15] pointer-events-none select-none">|</span>
         <button
           onClick={handleNextSlide}
-          disabled={activeSlideIndex === 26}
+          disabled={activeSlideIndex === SLIDE_COUNT}
           className={`flex items-center space-x-1 px-1.5 py-1 transition-colors cursor-pointer bg-transparent border-0 outline-none uppercase ${
-            activeSlideIndex === 26 ? "text-[#ffffff15] cursor-not-allowed" : "text-white font-bold hover:text-accent-lavender"
+            activeSlideIndex === SLIDE_COUNT ? "text-[#ffffff15] cursor-not-allowed" : "text-white font-bold hover:text-accent-lavender"
           }`}
         >
           <span>NEXT →</span>

@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import WorksOverview from "./components/WorksOverview";
 import ContactSection from "./components/ContactSection";
 import ProjectDetail from "./components/ProjectDetail";
+import PortfolioAgent from "./components/PortfolioAgent";
 
 export default function App() {
   const isProgrammaticScroll = useRef<boolean>(false);
@@ -191,6 +192,9 @@ export default function App() {
         activeProjectId={activeProjectId}
         onNavigate={handleNavigate}
       />
+      <div className="md:hidden">
+        <PortfolioAgent />
+      </div>
 
       {/* Mobile-only layout directory header */}
       <header className="fixed top-0 left-0 w-full z-40 bg-bg-dark/75 backdrop-blur-md border-b border-white/5 py-4 px-6 md:hidden flex justify-between items-center">

@@ -2,10 +2,22 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
+import {handlePortfolioAgentNodeRequest} from './src/server/portfolioAgentApi';
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      {
+        name: 'portfolio-agent-local-model-api',
+        configureServer(viteServer) {
+          viteServer.middlewares.use('/api/portfolio-agent', (req, res) => {
+            void handlePortfolioAgentNodeRequest(req, res);
+          });
+        },
+      },
+      react(),
+      tailwindcss()
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
